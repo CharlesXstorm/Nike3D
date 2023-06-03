@@ -1,0 +1,10 @@
+
+<svg version="1.1" id="logo" x="0px" y="0px"
+	 width="200px" height="200px" viewBox="0 0 200 200" enableBackground="new 0 0 200 200" >
+<text transform="matrix(1 0 0 1 39.25 162)" fontFamily="'Montserrat-Regular'" fontSize="24">XSTORM</text>
+<text transform="matrix(1 0 0 1 39.25 77)" fontFamily="'Montserrat-Regular'" fontSize="48">DEV</text>
+<path fillRule="evenodd" clipRule="evenodd" d="M125.25,103.6c0,0.221-4.478,0.4-10,0.4h-80c-5.523,0-10-0.18-10-0.4V100.4
+	c0-0.221,4.477-0.4,10-0.4h80c5.522,0,10,0.18,10,0.4V103.6z"/>
+<path fillRule="evenodd" clipRule="evenodd" d="M174.75,121.1c0,0.221-6.694,0.4-14.95,0.4H40.2c-8.257,0-14.95-0.18-14.95-0.4
+	V117.9c0-0.221,6.693-0.4,14.95-0.4h119.6c8.256,0,14.95,0.18,14.95,0.4V121.1z"/>
+</svg>
