@@ -8,7 +8,7 @@ const Header = () => {
     const calcWidth = () => {
       window.innerWidth < 540
         ? setWidth(["60%", "30%"])
-        : window.innerWidth < 1025
+        : window.innerWidth < 1020
         ? setWidth(["30%", "20%"])
         : setWidth(["10%", "10%"]);
     };

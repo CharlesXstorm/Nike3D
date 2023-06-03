@@ -9,7 +9,7 @@ import { useFrame } from "@react-three/fiber";
 import { Decal, Html, useGLTF } from "@react-three/drei";
 import { easing } from "maath";
 import Tab from "../components/Tab";
-// import * as THREE from "three";
+import * as THREE from "three";
 
 export function Model() {
   const { nodes, materials } = useGLTF("/Nike3D.glb");
@@ -65,17 +65,25 @@ export function Model() {
         receiveShadow
       />
       <mesh position={[0, -0.5, -1.2]} rotation={[0, Math.PI / 2, 0]}>
-        {/* <boxGeometry args={[0.5, 1, 0.05]} />
-        <meshStandardMaterial attach="material" color={"red"} /> */}
-        <Html
+        <boxGeometry args={[0.5, 1, 0.05]} />
+        <meshStandardMaterial
+          attach="material"
+          color={"lime"}
+          blending={THREE.AdditiveBlending}
+          roughness={0.2}
+          opacity={0.8}
+          envMapIntensity={2}
+          transparent
+        />
+        {/* <Html
           scale={5}
           rotation={[0, Math.PI / 2, 0]}
           position={[0, -0.5, 1.5]}
-          // transform
-          // occlude
+          transform
+          occlude
         >
           <Tab />
-        </Html>
+        </Html> */}
       </mesh>
 
       {/* <mesh
