@@ -3,7 +3,7 @@
 const Nav = () => {
   return (
     <div
-      className={`absolute p-10 w-full z-10 bottom-[40px] xl:bottom-0 flex justify-center items-center gap-[5%]`}
+      className={`absolute p-10 w-full z-10 bottom-[40px] sm:bottom-[10px] flex justify-center items-center gap-[5%]`}
     >
       <div className="right flex justify-start">
         <svg
@@ -15,7 +15,7 @@ const Nav = () => {
           //   height="200px"
           viewBox="0 0 300 200"
           enableBackground="new 0 0 300 200"
-          className="bg-[rgba(0,255,0,1)] xl:bg-[rgba(0,255,0,0.4)] p-[10px] backdrop-blur-md"
+          className="bg-[rgba(0,255,0,1)] sm:bg-[rgba(0,255,0,0.4)] p-[10px] backdrop-blur-md"
           // style={{
           //   backgroundColor: "rgba(0,255,0,0.4)",
           //   backdropFilter: "blur(12px)",
@@ -41,7 +41,7 @@ const Nav = () => {
 
       <div className="left flex justify-end">
         <svg
-          className="origin-[50%, 50%] rotate-[180deg] bg-[rgba(0,255,0,1)] xl:bg-[rgba(0,255,0,0.4)] p-[10px] backdrop-blur-md"
+          className="origin-[50%, 50%] rotate-[180deg] bg-[rgba(0,255,0,1)] sm:bg-[rgba(0,255,0,0.4)] p-[10px] backdrop-blur-md"
           version="1.1"
           id="svgarrow"
           x="0px"
