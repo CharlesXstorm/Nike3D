@@ -1,15 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 // import React from 'react'
 import { Canvas } from "@react-three/fiber";
-import {
-  Environment,
-  Center,
-  OrbitControls,
-  AccumulativeShadows,
-  RandomizedLight,
-  Float,
-  ContactShadows,
-} from "@react-three/drei";
+import { Environment, Center } from "@react-three/drei";
 import Selector from "./Selector";
 import Shoe from "./Shoe";
 import ShadowCatcher from "./ShadowCatcher";
