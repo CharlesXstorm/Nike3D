@@ -9,13 +9,12 @@ export default defineConfig({
     chunkSizeWarningLimit: 700,
     rollupOptions: {
       output: {
-        manualChunks(id) {
-          if (id.includes("node_modules")) {
-            return id
-              .toString()
-              .split("node_modules/")[1]
-              .split("/")[0]
-              .toString();
+        manualChunks: (id) => {
+          if (
+            id.includes("@babylonjs/core/Engines/engine") ||
+            id.includes("@babylonjs/core/scene")
+          ) {
+            return "BabylonCoreScene/";
           }
         },
       },

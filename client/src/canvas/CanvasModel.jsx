@@ -18,7 +18,7 @@ const CanvasModel = () => {
   return (
     <Canvas
       shadows
-      className="w-full h-full z-10"
+      className="w-full h-full z-6"
       // camera={{ position: [0.5, 8, 1], fov: 20 }}
       camera={{ position: [0, 2, 10], fov: 20 }}
     >
