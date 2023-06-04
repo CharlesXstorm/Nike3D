@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 // import React from 'react'
 import { useEffect, useState } from "react";
 
@@ -12,11 +13,12 @@ const Header = () => {
         ? setWidth(["30%", "20%"])
         : setWidth(["10%", "10%"]);
     };
+    calcWidth();
 
     window.addEventListener("resize", calcWidth);
 
     return () => window.removeEventListener("resize", calcWidth);
-  }, [width]);
+  }, []);
   return (
     <div className="absolute p-10 xl:p-20 xl:pt-5 pt-5 w-full top-0 flex justify-center items-center gap-[10%] z-10">
       <div className="flex w-[50%] justify-start items-center">
