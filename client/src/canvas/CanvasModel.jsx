@@ -54,14 +54,14 @@ const CanvasModel = () => {
         far={0.1}
       /> */}
 
-      <Center>
-        <Selector>
-          {/* <Float floatingRange={[0.06, 0.09]}> </Float>  */}
-          <Shoe />
+      {/* <Center> */}
+      <Selector>
+        {/* <Float floatingRange={[0.06, 0.09]}> </Float>  */}
+        <Shoe />
 
-          <ShadowCatcher />
-        </Selector>
-      </Center>
+        <ShadowCatcher />
+      </Selector>
+      {/* </Center> */}
       {/* <Environment preset="city" /> */}
     </Canvas>
   );
