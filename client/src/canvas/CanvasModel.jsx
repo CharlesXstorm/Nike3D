@@ -34,7 +34,7 @@ const CanvasModel = () => {
         maxAzimuthAngle={-1.5}
         enablePan={false}
         enableZoom={false}
-        // rotateSpeed={0.5}
+        rotateSpeed={1}
         // autoRotate={true}
       />
       <ambientLight intensity={0.1} />
