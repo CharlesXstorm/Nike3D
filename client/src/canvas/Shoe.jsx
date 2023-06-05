@@ -6,12 +6,11 @@ import { Suspense } from "react";
 import Model from "./Nikegltf";
 
 const Shoe = ({ props }) => {
-  //   const { nodes, materials } = useGLTF("/Nikegltf.glb");
   return (
     <group {...props} dispose={null}>
-      {/* <Suspense fallback={null}> */}
-      <Model />
-      {/* </Suspense> */}
+      <Suspense fallback={null}>
+        <Model />
+      </Suspense>
     </group>
   );
 };

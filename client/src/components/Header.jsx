@@ -20,7 +20,7 @@ const Header = () => {
     return () => window.removeEventListener("resize", calcWidth);
   }, []);
   return (
-    <div className="absolute p-10 xl:p-20 xl:pt-5 pt-5 w-full top-0 flex justify-center items-center gap-[10%] z-10">
+    <div className="absolute pointer-events-none p-10 xl:p-20 xl:pt-5 pt-5 w-full top-0 flex justify-center items-center gap-[10%] z-10">
       <div className="flex w-[50%] justify-start items-center">
         <svg
           version="1.1"

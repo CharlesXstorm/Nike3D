@@ -3,30 +3,34 @@
 const Nav = () => {
   return (
     <div
-      className={`absolute p-10 w-full z-10 bottom-[40px] sm:bottom-[10px] flex justify-center items-center gap-[5%]`}
+      className={`absolute p-10 pointer-events-none w-full z-10 bottom-[40px] sm:bottom-[10px] flex justify-center items-center gap-[5%]`}
     >
-      <div className="right flex justify-start">
-        <svg
-          version="1.1"
-          id="svgarrow"
-          x="0px"
-          y="0px"
-          width="30%"
-          //   height="200px"
-          viewBox="0 0 300 200"
-          enableBackground="new 0 0 300 200"
-          className="bg-[rgba(0,255,0,1)] sm:bg-[rgba(0,255,0,0.4)] p-[10px] backdrop-blur-md"
-          // style={{
-          //   backgroundColor: "rgba(0,255,0,0.4)",
-          //   backdropFilter: "blur(12px)",
-          //   padding: "10px",
-          // }}
-        >
-          <path
-            id="arrow"
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M25.487,98.138c1.676-2.233,3.113-4.704,5.064-6.664
+      <div
+        onClick={() => console.log("done")}
+        className="right flex justify-start"
+      >
+        <button className="w-[30%] pointer-events-auto">
+          <svg
+            version="1.1"
+            id="svgarrow"
+            x="0px"
+            y="0px"
+            width="100%"
+            //   height="200px"
+            viewBox="0 0 300 200"
+            enableBackground="new 0 0 300 200"
+            className="bg-[rgba(0,255,0,1)] sm:bg-[rgba(0,255,0,0.4)] p-[10px] backdrop-blur-md"
+            // style={{
+            //   backgroundColor: "rgba(0,255,0,0.4)",
+            //   backdropFilter: "blur(12px)",
+            //   padding: "10px",
+            // }}
+          >
+            <path
+              id="arrow"
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M25.487,98.138c1.676-2.233,3.113-4.704,5.064-6.664
 	c25.01-25.119,50.101-50.157,75.146-75.24c2.75-2.753,5.742-4.494,9.772-3.3c5.963,1.767,8.285,8.766,4.524,13.706
 	c-0.635,0.834-1.403,1.572-2.148,2.317C97.832,48.977,77.817,68.997,57.78,88.994c-0.602,0.6-1.449,0.954-2.182,1.421
 	c0.219,0.294,0.437,0.589,0.656,0.883c0.94,0,1.879,0,2.818,0c68.054,0,136.107,0.037,204.161-0.069
@@ -35,29 +39,31 @@ const Nav = () => {
 	c0.792,0.409,1.749,0.652,2.351,1.253c20.124,20.023,40.205,40.092,60.321,60.124c2.757,2.746,4.461,5.767,3.353,9.78
 	c-1.669,6.047-8.521,8.464-13.58,4.776c-0.846-0.617-1.601-1.371-2.345-2.114c-25.412-25.405-50.832-50.803-76.188-76.264
 	c-1.551-1.557-2.589-3.623-3.866-5.453C25.487,100.733,25.487,99.436,25.487,98.138z"
-          />
-        </svg>
+            />
+          </svg>
+        </button>
       </div>
 
       <div className="left flex justify-end">
-        <svg
-          className="origin-[50%, 50%] rotate-[180deg] bg-[rgba(0,255,0,1)] sm:bg-[rgba(0,255,0,0.4)] p-[10px] backdrop-blur-md"
-          version="1.1"
-          id="svgarrow"
-          x="0px"
-          y="0px"
-          width="30%"
-          //   height="200px"
-          viewBox="0 0 300 200"
-          enableBackground="new 0 0 300 200"
+        <button className="w-[30%] pointer-events-auto">
+          <svg
+            className="origin-[50%, 50%] rotate-[180deg] bg-[rgba(0,255,0,1)] sm:bg-[rgba(0,255,0,0.4)] p-[10px] backdrop-blur-md"
+            version="1.1"
+            id="svgarrow"
+            x="0px"
+            y="0px"
+            width="100%"
+            //   height="200px"
+            viewBox="0 0 300 200"
+            enableBackground="new 0 0 300 200"
 
-          // style={{ backgroundColor: "lime", padding: "10px" }}
-        >
-          <path
-            id="arrow"
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M25.487,98.138c1.676-2.233,3.113-4.704,5.064-6.664
+            // style={{ backgroundColor: "lime", padding: "10px" }}
+          >
+            <path
+              id="arrow"
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M25.487,98.138c1.676-2.233,3.113-4.704,5.064-6.664
 	c25.01-25.119,50.101-50.157,75.146-75.24c2.75-2.753,5.742-4.494,9.772-3.3c5.963,1.767,8.285,8.766,4.524,13.706
 	c-0.635,0.834-1.403,1.572-2.148,2.317C97.832,48.977,77.817,68.997,57.78,88.994c-0.602,0.6-1.449,0.954-2.182,1.421
 	c0.219,0.294,0.437,0.589,0.656,0.883c0.94,0,1.879,0,2.818,0c68.054,0,136.107,0.037,204.161-0.069
@@ -66,8 +72,9 @@ const Nav = () => {
 	c0.792,0.409,1.749,0.652,2.351,1.253c20.124,20.023,40.205,40.092,60.321,60.124c2.757,2.746,4.461,5.767,3.353,9.78
 	c-1.669,6.047-8.521,8.464-13.58,4.776c-0.846-0.617-1.601-1.371-2.345-2.114c-25.412-25.405-50.832-50.803-76.188-76.264
 	c-1.551-1.557-2.589-3.623-3.866-5.453C25.487,100.733,25.487,99.436,25.487,98.138z"
-          />
-        </svg>
+            />
+          </svg>
+        </button>
       </div>
     </div>
   );

@@ -10,6 +10,7 @@ import {
 import Selector from "./Selector";
 import Shoe from "./Shoe";
 import ShadowCatcher from "./ShadowCatcher";
+import * as THREE from "three";
 
 const CanvasModel = () => {
   return (
@@ -26,17 +27,10 @@ const CanvasModel = () => {
         args={["#0047ab"]}
       /> */}
       <Environment preset="city" intensity={0.5} />
-      <gridHelper args={[20, 20, 0xff0000, "teal"]} />
+      {/* <gridHelper args={[20, 20, 0x000000, "teal"]} />
+      <primitive object={new THREE.AxesHelper(5)} /> */}
       {/* <fog attach="fog" args={["#101010", 10, 20]} /> */}
-      <OrbitControls
-        maxPolarAngle={1.5}
-        minPolarAngle={1}
-        maxAzimuthAngle={-1.5}
-        enablePan={false}
-        enableZoom={false}
-        rotateSpeed={1}
-        // autoRotate={true}
-      />
+
       <ambientLight intensity={0.1} />
       <directionalLight
         shadow-mapSize={1024}
@@ -70,6 +64,20 @@ const CanvasModel = () => {
 
         {/* <ShadowCatcher /> */}
       </Selector>
+
+      {/* {true && (
+        <OrbitControls
+         
+          maxPolarAngle={1.5}
+          minPolarAngle={1}
+          maxAzimuthAngle={0.6}
+          minAzimuthAngle={-1}
+          enablePan={false}
+          enableZoom={false}
+          rotateSpeed={1}
+         
+        />
+      )} */}
       {/* </Center> */}
       {/* <Environment preset="city" /> */}
     </Canvas>
