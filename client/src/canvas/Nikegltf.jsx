@@ -10,13 +10,8 @@ import * as THREE from "three";
 import { Icons } from "./Icons";
 
 export function Model() {
-  const { nodes, materials } = useGLTF("/Nike3D.glb");
-  // const [ref, inView, entry] = useInView({
-  //   delay: 5000,
-  //   trackVisibility: true,
-  // });
-
-  // console.log(inView, entry);
+  // const { nodes, materials } = useGLTF("/Nike3D.glb");
+  const { nodes, materials } = useGLTF("/NikeFiber.gltf");
 
   // const logoTexture = useTexture("/threejs.png");
 
@@ -50,8 +45,9 @@ export function Model() {
       // rotation={[0, 0, 0]}
     >
       <mesh
-        geometry={nodes.sneaker_1.geometry}
-        material={materials.bodyText}
+        // geometry={nodes.sneaker_1.geometry}
+        geometry={nodes.NikeFiber_1.geometry}
+        material={materials.bodyTex}
         castShadow
         receiveShadow
       />
@@ -67,8 +63,9 @@ export function Model() {
         />
       </mesh> */}
       <mesh
-        geometry={nodes.sneaker_2.geometry}
-        material={materials.soleText}
+        // geometry={nodes.sneaker_2.geometry}
+        geometry={nodes.NikeFiber_2.geometry}
+        material={materials.soleTex}
         castShadow
         receiveShadow
       />
@@ -147,6 +144,6 @@ export function Model() {
   );
 }
 
-useGLTF.preload("/Nike3D.glb");
+useGLTF.preload("/NikeFiber.gltf");
 
 export default Model;

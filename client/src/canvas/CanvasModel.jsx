@@ -62,7 +62,7 @@ const CanvasModel = () => {
         {/* <Float floatingRange={[0.06, 0.09]}> </Float>  */}
         <Shoe />
 
-        {/* <ShadowCatcher /> */}
+        <ShadowCatcher />
       </Selector>
 
       {/* {true && (
