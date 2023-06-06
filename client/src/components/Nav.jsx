@@ -3,13 +3,13 @@
 const Nav = () => {
   return (
     <div
-      className={`absolute p-10 pointer-events-none w-full z-10 bottom-[40px] sm:bottom-[10px] flex justify-center items-center gap-[5%]`}
+      className={`absolute p-10 pointer-events-none w-full z-10 bottom-[100px] sm:bottom-[10px] flex justify-center items-center gap-[5%]`}
     >
       <div
         onClick={() => console.log("done")}
         className="right flex justify-start"
       >
-        <button className="w-[30%] pointer-events-auto">
+        <button className="w-[40%] pointer-events-auto">
           <svg
             version="1.1"
             id="svgarrow"
@@ -19,7 +19,8 @@ const Nav = () => {
             //   height="200px"
             viewBox="0 0 300 200"
             enableBackground="new 0 0 300 200"
-            className="bg-[rgba(0,255,0,1)] sm:bg-[rgba(0,255,0,0.4)] p-[10px] backdrop-blur-md"
+            // className="bg-[rgba(0,255,0,1)] sm:bg-[rgba(0,255,0,0.4)] p-[10px] backdrop-blur-md"
+            className="p-[10px]"
             // style={{
             //   backgroundColor: "rgba(0,255,0,0.4)",
             //   backdropFilter: "blur(12px)",
@@ -45,9 +46,9 @@ const Nav = () => {
       </div>
 
       <div className="left flex justify-end">
-        <button className="w-[30%] pointer-events-auto">
+        <button className="w-[40%] pointer-events-auto">
           <svg
-            className="origin-[50%, 50%] rotate-[180deg] bg-[rgba(0,255,0,1)] sm:bg-[rgba(0,255,0,0.4)] p-[10px] backdrop-blur-md"
+            className="origin-[50%, 50%] rotate-[180deg] p-[10px]"
             version="1.1"
             id="svgarrow"
             x="0px"

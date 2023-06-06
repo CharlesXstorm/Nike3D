@@ -11,6 +11,7 @@ import Selector from "./Selector";
 import Shoe from "./Shoe";
 import ShadowCatcher from "./ShadowCatcher";
 import * as THREE from "three";
+import Background from "./Background";
 
 const CanvasModel = () => {
   return (
@@ -26,14 +27,20 @@ const CanvasModel = () => {
         attach={"background"}
         args={["#0047ab"]}
       /> */}
-      <Environment preset="city" intensity={0.5} />
+      <Environment
+        preset="city"
+        resolution={256}
+        // background
+        blur={0.8}
+        intensity={0.5}
+      />
       {/* <gridHelper args={[20, 20, 0x000000, "teal"]} />
       <primitive object={new THREE.AxesHelper(5)} /> */}
       {/* <fog attach="fog" args={["#101010", 10, 20]} /> */}
 
       <ambientLight intensity={0.1} />
       <directionalLight
-        shadow-mapSize={1024}
+        // shadow-mapSize={1024}
         castShadow
         intensity={0.5}
         position={[0, 1, 2]}
@@ -54,8 +61,10 @@ const CanvasModel = () => {
         opacity={1}
         scale={10}
         blur={1}
-        far={0.1}
+        far={0.9}
       /> */}
+
+      {/* <ShadowCatcher /> */}
 
       {/* <Center> */}
       <Selector>
@@ -63,6 +72,7 @@ const CanvasModel = () => {
         <Shoe />
 
         <ShadowCatcher />
+        <Background />
       </Selector>
 
       {/* {true && (

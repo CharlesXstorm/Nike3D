@@ -10,9 +10,9 @@ const Selector = ({ children }) => {
   useFrame((state, delta) => {
     const target =
       window.innerWidth < 600
-        ? [-0.2, 4.5, 15]
+        ? [-0.5, 4.5, 15]
         : window.innerWidth < 1024
-        ? [-0.2, 3.2, 10]
+        ? [-0.5, 3.2, 10]
         : [-0.8, 2, 6];
     easing.damp3(state.camera.position, target, 0.25, delta);
     easing.dampE(

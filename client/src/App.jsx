@@ -16,11 +16,16 @@ function App() {
 
   useEffect(() => {
     setDvWidth(window.innerWidth);
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        console.log("loaded");
+      }, [1000]);
+    });
   }, []);
 
   return (
     <>
-      <div className="fixed w-screen h-screen">
+      <div className="bg-lime-200 fixed w-screen h-screen">
         <Home />
         <Nav />
         <Header />

@@ -66,6 +66,7 @@ export function Model() {
         // geometry={nodes.sneaker_2.geometry}
         geometry={nodes.NikeFiber_2.geometry}
         material={materials.soleTex}
+        // material-color={"red"}
         castShadow
         receiveShadow
       />

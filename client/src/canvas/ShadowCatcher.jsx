@@ -5,19 +5,27 @@ import { useRef } from "react";
 const ShadowCatcher = () => {
   const shadow = useRef();
   return (
-    <group rotation={[0, 0, 0]} position={[0, 0, -0.5]}>
+    <group
+      // className={"z-2"}
+      // rotation={[-Math.PI / 2, 0, 0]}
+      rotation={[0, 0, 0]}
+      position={[0, 0, -0.5]}
+    >
+      {/* <mesh receiveShadow>
+        <circleGeometry args={[10]} />
+        <meshStandardMaterial color={"white"} />
+      </mesh> */}
       <AccumulativeShadows
         ref={shadow}
         temporal
-        frames={50}
-        alphaTest={0.65}
+        frames={100}
+        alphaTest={0.85}
         opacity={0.85}
         scale={10}
-        // position={[0, 0, -5]}
       >
         <RandomizedLight
           amount={8}
-          radius={1}
+          radius={6}
           ambient={0.5}
           intensity={1.5}
           position={[0, 0, -5]}
