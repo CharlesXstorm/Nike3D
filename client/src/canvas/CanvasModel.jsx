@@ -6,6 +6,8 @@ import {
   Center,
   ContactShadows,
   OrbitControls,
+  SoftShadows,
+  Float,
 } from "@react-three/drei";
 import Selector from "./Selector";
 import Shoe from "./Shoe";
@@ -54,27 +56,27 @@ const CanvasModel = () => {
         color={"blue"}
       /> */}
 
-      {/* <ContactShadows
-        resolution={512}
+      <ContactShadows
+        resolution={1024}
         // position={[0, -0.101, 0]}
-        position={[0, 0, 0]}
+        position={[0, -0.08, 0]}
         opacity={1}
         scale={10}
         blur={1}
         far={0.9}
-      /> */}
+      />
 
       {/* <ShadowCatcher /> */}
 
       {/* <Center> */}
       <Selector>
-        {/* <Float floatingRange={[0.06, 0.09]}> </Float>  */}
-        <Shoe />
-
-        <ShadowCatcher />
-        <Background />
+        <Float speed={2} floatingRange={[0.04, 0.1]}>
+          <Shoe />
+        </Float>
+        {/* <ShadowCatcher /> */}
+        {/* <SoftShadows /> */}
       </Selector>
-
+      <Background />
       {/* {true && (
         <OrbitControls
          

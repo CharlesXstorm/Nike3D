@@ -1,9 +1,15 @@
 /* eslint-disable react/no-unknown-property */
 import { AccumulativeShadows, RandomizedLight } from "@react-three/drei";
-import { useRef } from "react";
+import { useRef, useLayoutEffect } from "react";
+import { useFrame } from "@react-three/fiber";
 
 const ShadowCatcher = () => {
   const shadow = useRef();
+
+  // useLayoutEffect(() => {
+  //   shadow.current.frames = 100;
+  // });
+
   return (
     <group
       // className={"z-2"}
@@ -16,12 +22,21 @@ const ShadowCatcher = () => {
         <meshStandardMaterial color={"white"} />
       </mesh> */}
       <AccumulativeShadows
-        ref={shadow}
         temporal
         frames={100}
-        alphaTest={0.85}
+        color="black"
+        colorBlend={2}
+        toneMapped={true}
+        alphaTest={0.9}
         opacity={0.85}
         scale={10}
+        // ref={shadow}
+        // temporal
+        // frames={40}
+        // blend={100}
+        // alphaTest={0.85}
+        // opacity={0.85}
+        // scale={10}
       >
         <RandomizedLight
           amount={8}

@@ -25,7 +25,12 @@ function App() {
 
   return (
     <>
-      <div className="bg-lime-200 fixed w-screen h-screen">
+      <div
+        style={{
+          backgroundImage: "linear-gradient(45deg,black,white 20%)",
+        }}
+        className="fixed w-screen h-screen"
+      >
         <Home />
         <Nav />
         <Header />
