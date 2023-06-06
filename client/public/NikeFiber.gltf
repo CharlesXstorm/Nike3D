@@ -4,10 +4,12 @@
         "version" : "2.0"
     },
     "extensionsUsed" : [
-        "KHR_draco_mesh_compression"
+        "KHR_draco_mesh_compression",
+        "KHR_texture_transform"
     ],
     "extensionsRequired" : [
-        "KHR_draco_mesh_compression"
+        "KHR_draco_mesh_compression",
+        "KHR_texture_transform"
     ],
     "scene" : 0,
     "scenes" : [
@@ -39,6 +41,18 @@
             },
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
+                    "extensions" : {
+                        "KHR_texture_transform" : {
+                            "offset" : [
+                                0,
+                                -7
+                            ],
+                            "scale" : [
+                                8,
+                                8
+                            ]
+                        }
+                    },
                     "index" : 1
                 },
                 "metallicFactor" : 0

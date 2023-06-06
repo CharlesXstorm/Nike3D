@@ -5,7 +5,7 @@ Command: npx gltfjsx@6.2.3 public/icons.gltf
 */
 
 import { useState } from "react";
-import { useGLTF } from "@react-three/drei";
+import { Text3D, useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { easing } from "maath";
 import { useRef } from "react";
@@ -13,6 +13,8 @@ import { state } from "../store";
 import { useSnapshot } from "valtio";
 import { motion } from "framer-motion-3d";
 import * as THREE from "three";
+
+// import bold from "../";
 
 export function Icons() {
   const { nodes } = useGLTF("/iconss.gltf");
@@ -90,6 +92,22 @@ export function Icons() {
       >
         <meshStandardMaterial />
       </motion.mesh>
+      <Text3D
+        size={0.12}
+        scale-z={0.2}
+        curveSegments={32}
+        bevelEnabled
+        bevelSize={0.01}
+        bevelThickness={0.06}
+        rotation-x={[-Math.PI / 2]}
+        rotation-y={[-Math.PI / 2]}
+        position-z={-0.9}
+        position-y={-0.8}
+        font={"../../fonts/inter_Bold.json"}
+      >
+        N25,000
+        <meshNormalMaterial />
+      </Text3D>
     </group>
   );
 }

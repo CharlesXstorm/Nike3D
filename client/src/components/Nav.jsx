@@ -9,7 +9,7 @@ const Nav = () => {
         onClick={() => console.log("done")}
         className="right flex justify-start"
       >
-        <button className="w-[40%] pointer-events-auto">
+        <button className="w-[40%] pointer-events-auto hover:backdrop-blur-md hover:rounded-xl">
           <svg
             version="1.1"
             id="svgarrow"
@@ -20,7 +20,7 @@ const Nav = () => {
             viewBox="0 0 300 200"
             enableBackground="new 0 0 300 200"
             // className="bg-[rgba(0,255,0,1)] sm:bg-[rgba(0,255,0,0.4)] p-[10px] backdrop-blur-md"
-            className="p-[10px]"
+            className="p-[10px] hover:fill-lime-400"
             // style={{
             //   backgroundColor: "rgba(0,255,0,0.4)",
             //   backdropFilter: "blur(12px)",
@@ -46,9 +46,9 @@ const Nav = () => {
       </div>
 
       <div className="left flex justify-end">
-        <button className="w-[40%] pointer-events-auto">
+        <button className="w-[40%] pointer-events-auto hover:backdrop-blur-md hover:rounded-xl">
           <svg
-            className="origin-[50%, 50%] rotate-[180deg] p-[10px]"
+            className="origin-[50%, 50%] rotate-[180deg] p-[10px] hover:fill-lime-400"
             version="1.1"
             id="svgarrow"
             x="0px"

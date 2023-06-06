@@ -2,6 +2,7 @@
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { easing } from "maath";
+import { motion } from "framer-motion-3d";
 
 const Background = () => {
   const backdrop = useRef();
@@ -20,10 +21,16 @@ const Background = () => {
         <circleGeometry args={[10]} />
         <meshStandardMaterial color={"red"} />
       </mesh> */}
-      <mesh position={[-1, 0, -11]} receiveShadow={false}>
+      <motion.mesh
+        initial={{ scale: [0, 0, 0] }}
+        animate={{ scale: [1, 1, 1] }}
+        transition={{ duration: 2, ease: "easeInOut" }}
+        position={[-1, 0, -11]}
+        receiveShadow={false}
+      >
         <sphereGeometry args={[10, 20, 20]} />
         <meshStandardMaterial wireframe color={"black"} opacity={0} />
-      </mesh>
+      </motion.mesh>
     </group>
   );
 };

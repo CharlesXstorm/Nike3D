@@ -70,7 +70,7 @@ const CanvasModel = () => {
 
       {/* <Center> */}
       <Selector>
-        <Float speed={2} floatingRange={[0.04, 0.1]}>
+        <Float speed={4} floatingRange={[0.04, 0.1]}>
           <Shoe />
         </Float>
         {/* <ShadowCatcher /> */}
