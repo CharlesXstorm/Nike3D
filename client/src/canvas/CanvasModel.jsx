@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unknown-property */
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
   Environment,
@@ -10,10 +10,10 @@ import {
   Float,
 } from "@react-three/drei";
 import Selector from "./Selector";
-import Shoe from "./Shoe";
 import ShadowCatcher from "./ShadowCatcher";
 import * as THREE from "three";
 import Background from "./Background";
+import Models from "./Models";
 
 const CanvasModel = () => {
   return (
@@ -69,14 +69,14 @@ const CanvasModel = () => {
       {/* <ShadowCatcher /> */}
 
       {/* <Center> */}
-      <Selector>
-        <Float speed={4} floatingRange={[0.04, 0.1]}>
-          <Shoe />
-        </Float>
-        {/* <ShadowCatcher /> */}
-        {/* <SoftShadows /> */}
-      </Selector>
-      <Background />
+      <Suspense fallback={null}>
+        <Selector>
+          <Float speed={4} floatingRange={[0.04, 0.1]}>
+            <Models />
+          </Float>
+        </Selector>
+      </Suspense>
+      {/* <Background /> */}
       {/* {true && (
         <OrbitControls
          

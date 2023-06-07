@@ -31,6 +31,7 @@ const Header = () => {
           //   height="200px"
           viewBox="0 0 200 200"
           enableBackground="new 0 0 200 200"
+          fill="#fff"
         >
           <text
             transform="matrix(1 0 0 1 39.25 162)"
@@ -70,6 +71,7 @@ const Header = () => {
           //   height="200px"
           viewBox="0 0 200 200"
           enableBackground="new 0 0 200 200"
+          fill="#fff"
         >
           <path
             id="basket"
@@ -95,7 +97,7 @@ const Header = () => {
             fillRule="evenodd"
             clipRule="evenodd"
             fill="none"
-            stroke="#000000"
+            stroke="#fff"
             strokeWidth="4"
             strokeMiterlimit="10"
             cx="77.286"
@@ -107,7 +109,7 @@ const Header = () => {
             fillRule="evenodd"
             clipRule="evenodd"
             fill="none"
-            stroke="#000000"
+            stroke="#fff"
             strokeWidth="4"
             strokeMiterlimit="10"
             cx="139.173"

@@ -27,9 +27,10 @@ function App() {
     <>
       <div
         style={{
-          backgroundImage: "linear-gradient(45deg,black,white 20%)",
+          // backgroundImage: "linear-gradient(45deg,black,white 20%)",
+          backgroundImage: "url('/backdrop.jpg')",
         }}
-        className="fixed w-screen h-screen"
+        className="fixed w-screen h-screen overflow-hidden"
       >
         <Home />
         <Nav />

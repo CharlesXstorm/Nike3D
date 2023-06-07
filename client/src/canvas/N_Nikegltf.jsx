@@ -9,27 +9,10 @@ import { Decal, useGLTF, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 import { Icons } from "./Icons";
 
-export function Model() {
+const Nike2 = () => {
   const { nodes, materials } = useGLTF("/gltf/NikeFiber2/NikeFiber.gltf");
 
   const logoTexture = useTexture("/bucks.png");
-
-  const fabric = useTexture({
-    map: "/body_Base_Color-min.jpg",
-    // normalMap: "/Nikebody/body_Normal_DirectX.jpg",
-    // roughnessMap: "/Nikebody/body_Roughness.jpg",
-    // aoMap: "/Nikebody/body_Mixed_AO.jpg",
-    // metalnessMap: "/Nikebody/body_Metallic.jpg",
-  });
-
-  // fabric.map.wrapS = fabric.map.wrapT = THREE.RepeatWrapping;
-  // fabric.map.repeat.set(1, 1);
-  // const soleMat = useTexture({
-  //   map: "/Nikesole/1001_Base_Color.jpg",
-  //   normalMap: "/Nikesole/1001_Normal_DirectX.jpg",
-  //   roughnessMap: "/Nikesole/1001_Roughness.jpg",
-  //   aoMap: "/Nikesole/1001_Mixed_AO.jpg",
-  // });
 
   return (
     <group rotation={[-Math.PI / 2, Math.PI, Math.PI / 2]}>
@@ -45,6 +28,7 @@ export function Model() {
         castShadow
         receiveShadow
       />
+      <mesh geometry={nodes.NikeFiber_3.geometry} material={materials.logo} />
       <mesh position={[0, -0.5, -1.2]} rotation={[0, Math.PI / 2, 0]}>
         <boxGeometry args={[0.5, 1, 0.05]} />
         <meshStandardMaterial
@@ -60,8 +44,8 @@ export function Model() {
       </mesh>
     </group>
   );
-}
+};
 
-useGLTF.preload("/NikeFiber.gltf");
+useGLTF.preload("/gltf/NikeFiber2/NikeFiber.gltf");
 
-export default Model;
+export default Nike2;

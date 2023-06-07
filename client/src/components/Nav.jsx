@@ -1,15 +1,26 @@
 // import React from 'react'
 
+import { state } from "../store";
+import { useSnapshot } from "valtio";
+
 const Nav = () => {
+  const snap = useSnapshot(state);
   return (
     <div
       className={`absolute p-10 pointer-events-none w-full z-10 bottom-[100px] sm:bottom-[10px] flex justify-center items-center gap-[5%]`}
     >
-      <div
-        onClick={() => console.log("done")}
-        className="right flex justify-start"
-      >
-        <button className="w-[40%] pointer-events-auto hover:backdrop-blur-md hover:rounded-xl">
+      <div className="left flex justify-start">
+        <button
+          onClick={() => {
+            state.changePos = -3;
+            setTimeout(() => {
+              state.index =
+                state.index - 1 < 0 ? state.indexLen - 1 : state.index - 1;
+              state.changePos = 0;
+            }, [1000]);
+          }}
+          className="w-[40%] pointer-events-auto hover:backdrop-blur-md hover:rounded-xl"
+        >
           <svg
             version="1.1"
             id="svgarrow"
@@ -21,6 +32,7 @@ const Nav = () => {
             enableBackground="new 0 0 300 200"
             // className="bg-[rgba(0,255,0,1)] sm:bg-[rgba(0,255,0,0.4)] p-[10px] backdrop-blur-md"
             className="p-[10px] hover:fill-lime-400"
+            fill="#fff"
             // style={{
             //   backgroundColor: "rgba(0,255,0,0.4)",
             //   backdropFilter: "blur(12px)",
@@ -45,8 +57,18 @@ const Nav = () => {
         </button>
       </div>
 
-      <div className="left flex justify-end">
-        <button className="w-[40%] pointer-events-auto hover:backdrop-blur-md hover:rounded-xl">
+      <div className="right flex justify-end">
+        <button
+          onClick={() => {
+            state.changePos = -3;
+            setTimeout(() => {
+              state.index =
+                state.index + 1 > state.indexLen - 1 ? 0 : state.index + 1;
+              state.changePos = 0;
+            }, [1000]);
+          }}
+          className="w-[40%] pointer-events-auto hover:backdrop-blur-md hover:rounded-xl"
+        >
           <svg
             className="origin-[50%, 50%] rotate-[180deg] p-[10px] hover:fill-lime-400"
             version="1.1"
@@ -57,6 +79,7 @@ const Nav = () => {
             //   height="200px"
             viewBox="0 0 300 200"
             enableBackground="new 0 0 300 200"
+            fill="#fff"
 
             // style={{ backgroundColor: "lime", padding: "10px" }}
           >

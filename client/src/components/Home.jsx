@@ -1,8 +1,13 @@
 // import React from 'react'
+import { motion } from "framer-motion";
+import { textAnimation } from "../utils/animationUtil";
 
 const Home = () => {
   return (
-    <div className="nike  absolute w-full h-full flex flex-col p-10 sm:p-[10vh] xl:p-40 pt-20 xl:pt-20 z-5 pointer-events-none ">
+    <motion.div
+      {...textAnimation("left")}
+      className="nike text-white absolute w-full h-full flex flex-col p-10 sm:p-[10vh] xl:p-40 pt-20 xl:pt-20 z-5 pointer-events-none "
+    >
       <p className="text-center sm:text-left font-black align-center xl:leading-[12rem] sm:leading-[10rem] leading-[8rem] xl:text-[12rem] sm:text-[10rem] text-[6rem]">
         JUST <br /> DO IT
       </p>
@@ -35,7 +40,7 @@ const Home = () => {
           />
         </svg>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

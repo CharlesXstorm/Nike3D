@@ -29,7 +29,7 @@ const Background = () => {
         receiveShadow={false}
       >
         <sphereGeometry args={[10, 20, 20]} />
-        <meshStandardMaterial wireframe color={"black"} opacity={0} />
+        <meshStandardMaterial wireframe color={"lime"} opacity={0} />
       </motion.mesh>
     </group>
   );

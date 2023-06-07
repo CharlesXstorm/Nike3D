@@ -1,222 +1,258 @@
 {
-    "asset" : {
-        "generator" : "Khronos glTF Blender I/O v3.2.40",
-        "version" : "2.0"
+  "asset": {
+    "generator": "Khronos glTF Blender I/O v3.2.40",
+    "version": "2.0"
+  },
+  "extensionsUsed": ["KHR_draco_mesh_compression"],
+  "extensionsRequired": ["KHR_draco_mesh_compression"],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [0]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "NikeFiber",
+      "rotation": [0.7071068286895752, 0, 0, 0.7071067094802856]
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "bodyTex",
+      "normalTexture": {
+        "index": 0
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 1
+        },
+        "metallicFactor": 0
+      }
     },
-    "extensionsUsed" : [
-        "KHR_draco_mesh_compression"
-    ],
-    "extensionsRequired" : [
-        "KHR_draco_mesh_compression"
-    ],
-    "scene" : 0,
-    "scenes" : [
+    {
+      "doubleSided": true,
+      "name": "soleTex",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 2
+        },
+        "metallicFactor": 0
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "logo",
+      "normalTexture": {
+        "index": 3
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [0, 0, 0, 1],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.800000011920929
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "NikeFiber",
+      "primitives": [
         {
-            "name" : "Scene",
-            "nodes" : [
-                0
-            ]
-        }
-    ],
-    "nodes" : [
-        {
-            "mesh" : 0,
-            "name" : "NikeFiber",
-            "rotation" : [
-                0.7071068286895752,
-                0,
-                0,
-                0.7071067094802856
-            ]
-        }
-    ],
-    "materials" : [
-        {
-            "doubleSided" : true,
-            "name" : "bodyTex",
-            "normalTexture" : {
-                "index" : 0
-            },
-            "pbrMetallicRoughness" : {
-                "baseColorTexture" : {
-                    "index" : 1
-                },
-                "metallicFactor" : 0
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 2
+          },
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 0,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
             }
+          },
+          "indices": 3,
+          "material": 0,
+          "mode": 4
         },
         {
-            "doubleSided" : true,
-            "name" : "soleTex",
-            "pbrMetallicRoughness" : {
-                "baseColorTexture" : {
-                    "index" : 2
-                },
-                "metallicFactor" : 0
+          "attributes": {
+            "POSITION": 4,
+            "NORMAL": 5,
+            "TEXCOORD_0": 6
+          },
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 1,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
             }
+          },
+          "indices": 7,
+          "material": 1,
+          "mode": 4
+        },
+        {
+          "attributes": {
+            "POSITION": 8,
+            "NORMAL": 9,
+            "TEXCOORD_0": 10
+          },
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 2,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          },
+          "indices": 11,
+          "material": 2,
+          "mode": 4
         }
-    ],
-    "meshes" : [
-        {
-            "name" : "NikeFiber",
-            "primitives" : [
-                {
-                    "attributes" : {
-                        "POSITION" : 0,
-                        "NORMAL" : 1,
-                        "TEXCOORD_0" : 2
-                    },
-                    "extensions" : {
-                        "KHR_draco_mesh_compression" : {
-                            "bufferView" : 0,
-                            "attributes" : {
-                                "POSITION" : 0,
-                                "NORMAL" : 1,
-                                "TEXCOORD_0" : 2
-                            }
-                        }
-                    },
-                    "indices" : 3,
-                    "material" : 0,
-                    "mode" : 4
-                },
-                {
-                    "attributes" : {
-                        "POSITION" : 4,
-                        "NORMAL" : 5,
-                        "TEXCOORD_0" : 6
-                    },
-                    "extensions" : {
-                        "KHR_draco_mesh_compression" : {
-                            "bufferView" : 1,
-                            "attributes" : {
-                                "POSITION" : 0,
-                                "NORMAL" : 1,
-                                "TEXCOORD_0" : 2
-                            }
-                        }
-                    },
-                    "indices" : 7,
-                    "material" : 1,
-                    "mode" : 4
-                }
-            ]
-        }
-    ],
-    "textures" : [
-        {
-            "sampler" : 0,
-            "source" : 0
-        },
-        {
-            "sampler" : 0,
-            "source" : 1
-        },
-        {
-            "sampler" : 0,
-            "source" : 2
-        }
-    ],
-    "images" : [
-        {
-            "mimeType" : "image/jpeg",
-            "name" : "body_Normal_DirectX",
-            "uri" : "body_Normal_DirectX.jpg"
-        },
-        {
-            "mimeType" : "image/jpeg",
-            "name" : "body_Base_Color-min",
-            "uri" : "body_Base_Color-min.jpg"
-        },
-        {
-            "mimeType" : "image/jpeg",
-            "name" : "1001_Base_Color-min",
-            "uri" : "1001_Base_Color-min.jpg"
-        }
-    ],
-    "accessors" : [
-        {
-            "componentType" : 5126,
-            "count" : 16570,
-            "max" : [
-                0.35183000564575195,
-                0.4945400059223175,
-                -0.2516460120677948
-            ],
-            "min" : [
-                -0.35537999868392944,
-                -1.4167300462722778,
-                -0.8989260196685791
-            ],
-            "type" : "VEC3"
-        },
-        {
-            "componentType" : 5126,
-            "count" : 16570,
-            "type" : "VEC3"
-        },
-        {
-            "componentType" : 5126,
-            "count" : 16570,
-            "type" : "VEC2"
-        },
-        {
-            "componentType" : 5123,
-            "count" : 25836,
-            "type" : "SCALAR"
-        },
-        {
-            "componentType" : 5126,
-            "count" : 6632,
-            "max" : [
-                0.4012500047683716,
-                0.5186899900436401,
-                0.007304000202566385
-            ],
-            "min" : [
-                -0.4012500047683716,
-                -1.4812999963760376,
-                -0.8856350183486938
-            ],
-            "type" : "VEC3"
-        },
-        {
-            "componentType" : 5126,
-            "count" : 6632,
-            "type" : "VEC3"
-        },
-        {
-            "componentType" : 5126,
-            "count" : 6632,
-            "type" : "VEC2"
-        },
-        {
-            "componentType" : 5123,
-            "count" : 11352,
-            "type" : "SCALAR"
-        }
-    ],
-    "bufferViews" : [
-        {
-            "buffer" : 0,
-            "byteLength" : 112231,
-            "byteOffset" : 0
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 45959,
-            "byteOffset" : 112232
-        }
-    ],
-    "samplers" : [
-        {
-            "magFilter" : 9729,
-            "minFilter" : 9987
-        }
-    ],
-    "buffers" : [
-        {
-            "byteLength" : 158192,
-            "uri" : "NikeFiber.bin"
-        }
-    ]
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    },
+    {
+      "sampler": 0,
+      "source": 0
+    }
+  ],
+  "images": [
+    {
+      "mimeType": "image/jpeg",
+      "name": "body_Normal_DirectX",
+      "uri": "body_Normal_DirectX.jpg"
+    },
+    {
+      "mimeType": "image/jpeg",
+      "name": "body_Base_Color-min",
+      "uri": "body_Base_Color-min.jpg"
+    },
+    {
+      "mimeType": "image/jpeg",
+      "name": "<UDIM>_Base_Color-min",
+      "uri": "UDIM_Base_Color-min.jpg"
+    }
+  ],
+  "accessors": [
+    {
+      "componentType": 5126,
+      "count": 16037,
+      "max": [0.35183000564575195, 0.4945400059223175, -0.2516460120677948],
+      "min": [-0.35537999868392944, -1.4167300462722778, -0.8989260196685791],
+      "type": "VEC3"
+    },
+    {
+      "componentType": 5126,
+      "count": 16037,
+      "type": "VEC3"
+    },
+    {
+      "componentType": 5126,
+      "count": 16037,
+      "type": "VEC2"
+    },
+    {
+      "componentType": 5123,
+      "count": 24852,
+      "type": "SCALAR"
+    },
+    {
+      "componentType": 5126,
+      "count": 6632,
+      "max": [0.4012500047683716, 0.5186899900436401, 0.007304000202566385],
+      "min": [-0.4012500047683716, -1.4812999963760376, -0.8856350183486938],
+      "type": "VEC3"
+    },
+    {
+      "componentType": 5126,
+      "count": 6632,
+      "type": "VEC3"
+    },
+    {
+      "componentType": 5126,
+      "count": 6632,
+      "type": "VEC2"
+    },
+    {
+      "componentType": 5123,
+      "count": 11352,
+      "type": "SCALAR"
+    },
+    {
+      "componentType": 5126,
+      "count": 533,
+      "max": [0.27584001421928406, 0.2798900008201599, -0.41410601139068604],
+      "min": [-0.29177001118659973, -0.4038099944591522, -0.7049350142478943],
+      "type": "VEC3"
+    },
+    {
+      "componentType": 5126,
+      "count": 533,
+      "type": "VEC3"
+    },
+    {
+      "componentType": 5126,
+      "count": 533,
+      "type": "VEC2"
+    },
+    {
+      "componentType": 5123,
+      "count": 984,
+      "type": "SCALAR"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 108750,
+      "byteOffset": 0
+    },
+    {
+      "buffer": 0,
+      "byteLength": 45959,
+      "byteOffset": 108752
+    },
+    {
+      "buffer": 0,
+      "byteLength": 4024,
+      "byteOffset": 154712
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 158736,
+      "uri": "NikeFiber.bin"
+    }
+  ]
 }

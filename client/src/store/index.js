@@ -1,19 +1,11 @@
 import { proxy } from "valtio";
-// import { useSnapshot } from "valtio";
+
+import { modelList } from "../utils/models";
 
 export const state = proxy({
   heartColor: "black",
   cartColor: "black",
+  changePos: 0,
+  index: 0,
+  indexLen: modelList.length,
 });
-
-// export const ToggleState = (dispatch) => {
-//   const snap = useSnapshot(state);
-
-//   switch (dispatch) {
-//     case "heartColor":
-//       state.heartColor = snap.heartColor === "black" ? "red" : "black";
-//       break;
-//     default:
-//       return;
-//   }
-// };

@@ -106,7 +106,8 @@ export function Icons() {
         font={"../../fonts/inter_Bold.json"}
       >
         N25,000
-        <meshNormalMaterial />
+        {/* <meshNormalMaterial /> */}
+        <meshPhysicalMaterial color={"orange"} />
       </Text3D>
     </group>
   );
