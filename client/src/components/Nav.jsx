@@ -13,11 +13,12 @@ const Nav = () => {
         <button
           onClick={() => {
             state.changePos = -3;
+            state.direction = "left";
             setTimeout(() => {
               state.index =
-                state.index - 1 < 0 ? state.indexLen - 1 : state.index - 1;
+                snap.index - 1 < 0 ? snap.indexLen - 1 : snap.index - 1;
               state.changePos = 0;
-            }, [1000]);
+            }, [500]);
           }}
           className="w-[40%] pointer-events-auto hover:backdrop-blur-md hover:rounded-xl"
         >
@@ -60,12 +61,13 @@ const Nav = () => {
       <div className="right flex justify-end">
         <button
           onClick={() => {
+            state.direction = "right";
             state.changePos = -3;
             setTimeout(() => {
               state.index =
-                state.index + 1 > state.indexLen - 1 ? 0 : state.index + 1;
+                snap.index + 1 > snap.indexLen - 1 ? 0 : snap.index + 1;
               state.changePos = 0;
-            }, [1000]);
+            }, [500]);
           }}
           className="w-[40%] pointer-events-auto hover:backdrop-blur-md hover:rounded-xl"
         >

@@ -1,9 +1,16 @@
 /* eslint-disable react/prop-types */
 // import React from 'react'
 import { useEffect, useState } from "react";
+import { useSnapshot } from "valtio";
+import { state } from "../store";
+// import { motion } from "framer-motion";
 
 const Header = () => {
   const [width, setWidth] = useState(["10%", "10%"]);
+  const [xDist, setXdist] = useState("0px");
+  const [isClicked, setIsClicked] = useState(false);
+
+  const snap = useSnapshot(state);
 
   useEffect(() => {
     const calcWidth = () => {
@@ -21,45 +28,85 @@ const Header = () => {
   }, []);
   return (
     <div className="absolute pointer-events-none p-10 xl:p-20 xl:pt-5 pt-5 w-full top-0 flex justify-center items-center gap-[10%] z-10">
-      <div className="flex w-[50%] justify-start items-center">
-        <svg
-          version="1.1"
-          id="logo"
-          x="0px"
-          y="0px"
-          width={width[0]}
-          //   height="200px"
-          viewBox="0 0 200 200"
-          enableBackground="new 0 0 200 200"
-          fill="#fff"
+      <div className="flex w-[50%] pointer-events-auto justify-start items-center">
+        <button
+          onMouseOver={() => setXdist("60px")}
+          onMouseOut={() => setXdist(isClicked ? "60px" : "0px")}
+          onClick={() => {
+            switch (
+              width[0] //checking device width
+            ) {
+              case "10%": //desktop
+                xDist === "60px" && !isClicked
+                  ? setXdist("60px")
+                  : setXdist("0px");
+                break;
+              case "30%": //tablet
+                !isClicked ? setXdist("60px") : setXdist("0px");
+                break;
+              case "60%": //mobile
+                !isClicked ? setXdist("60px") : setXdist("0px");
+                break;
+            }
+            // xDist === "60px" && !isClicked ? setXdist("60px") : setXdist("0px");
+            setIsClicked((prev) => !prev);
+
+            state.isTech = !snap.isTech;
+          }}
+          style={{ width: `${width[0]}` }}
         >
-          <text
-            transform="matrix(1 0 0 1 39.25 162)"
-            fontFamily="Montserrat"
-            fontSize="24"
+          <svg
+            version="1.1"
+            id="logo"
+            x="0px"
+            y="0px"
+            width="100%"
+            //   height="200px"
+            viewBox="0 0 200 200"
+            enableBackground="new 0 0 200 200"
+            fill="#fff"
+            // stroke={"#fff"}
           >
-            XSTORM
-          </text>
-          <text
-            transform="matrix(1 0 0 1 39.25 77)"
-            fontFamily="Montserrat"
-            fontSize="48"
-          >
-            DEV
-          </text>
-          <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M125.25,103.6c0,0.221-4.478,0.4-10,0.4h-80c-5.523,0-10-0.18-10-0.4V100.4
+            <text
+              transform="matrix(1 0 0 1 39.25 162)"
+              fontFamily="Montserrat"
+              fontSize="24"
+            >
+              XSTORM
+            </text>
+            <text
+              transform="matrix(1 0 0 1 39.25 77)"
+              fontFamily="Montserrat"
+              fontSize="48"
+            >
+              DEV
+            </text>
+            <path
+              // initial={{ x: 0, pathLength: 1 }}
+              // whileHover={{ x: 100, pathLength: 1 }}
+              // transition={{ duration: 0.5 }}
+              style={{
+                transform: `translateX(${xDist})`,
+                transition: "all 0.1s linear",
+              }}
+              fillRule="evenodd"
+              stroke={"#fff"}
+              clipRule="evenodd"
+              d="M125.25,103.6c0,0.221-4.478,0.4-10,0.4h-80c-5.523,0-10-0.18-10-0.4V100.4
 	c0-0.221,4.477-0.4,10-0.4h80c5.522,0,10,0.18,10,0.4V103.6z"
-          />
-          <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M174.75,121.1c0,0.221-6.694,0.4-14.95,0.4H40.2c-8.257,0-14.95-0.18-14.95-0.4
+            />
+            <path
+              style={{
+                transform: `translateX(${"-" + xDist})`,
+                transition: "all 0.1s linear",
+              }}
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M174.75,121.1c0,0.221-6.694,0.4-14.95,0.4H40.2c-8.257,0-14.95-0.18-14.95-0.4
 	V117.9c0-0.221,6.693-0.4,14.95-0.4h119.6c8.256,0,14.95,0.18,14.95,0.4V121.1z"
-          />
-        </svg>
+            />
+          </svg>
+        </button>
       </div>
       <div className="flex w-[50%] justify-end items-center ">
         <svg

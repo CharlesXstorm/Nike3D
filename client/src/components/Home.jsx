@@ -1,16 +1,28 @@
+/* eslint-disable react/prop-types */
 // import React from 'react'
 import { motion } from "framer-motion";
 import { textAnimation } from "../utils/animationUtil";
+import { state } from "../store";
+import { useSnapshot } from "valtio";
 
-const Home = () => {
+const Home = ({ text }) => {
+  const snap = useSnapshot(state);
   return (
     <motion.div
-      {...textAnimation("left")}
+      {...textAnimation(snap.direction)}
+      // exit={textAnimation(snap.direction)["initial"]}
       className="nike text-white absolute w-full h-full flex flex-col p-10 sm:p-[10vh] xl:p-40 pt-20 xl:pt-20 z-5 pointer-events-none "
     >
       <p className="text-center sm:text-left font-black align-center xl:leading-[12rem] sm:leading-[10rem] leading-[8rem] xl:text-[12rem] sm:text-[10rem] text-[6rem]">
-        JUST <br /> DO IT
+        {/* JUST <br /> WEAR IT */}
+        {text}
       </p>
+      {/* {snap.index === 2 && (
+        <p className=" absolute text-center z-2 sm:text-left font-oleo text-orange-400 align-center xl:leading-[6rem] sm:leading-[4rem] leading-[2rem] xl:text-[6rem] sm:text-[4rem] text-[2rem]">
+          Yesterday <br /> you said <br />
+          Tomorrow
+        </p>
+      )} */}
       <div className="flex justify-center sm:justify-start ">
         <svg
           // className="absolute scale-50 left-[-60vw] xl:left-[-100px] sm:left-[-20vw] bottom-0"

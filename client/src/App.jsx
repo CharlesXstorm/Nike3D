@@ -3,16 +3,25 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import Nav from "./components/Nav";
 import { useEffect, useState } from "react";
-import { useInView } from "react-intersection-observer";
+// import { useInView } from "react-intersection-observer";
+import { useSnapshot } from "valtio";
+import { AnimatePresence } from "framer-motion";
+
+import { modelList } from "./utils/models";
+import { state } from "./store";
+import Techs from "./components/Techs";
 
 function App() {
   const [dvWidth, setDvWidth] = useState(1024);
-  const [ref, inView, entry] = useInView({
-    delay: 50000,
-    trackVisibility: true,
-  });
+  const [models] = useState([...modelList]);
+  // const [ref, inView, entry] = useInView({
+  //   delay: 50000,
+  //   trackVisibility: true,
+  // });
 
-  // console.log(inView, entry);
+  const snap = useSnapshot(state);
+
+  // console.log(models[0]);
 
   useEffect(() => {
     setDvWidth(window.innerWidth);
@@ -30,12 +39,23 @@ function App() {
           // backgroundImage: "linear-gradient(45deg,black,white 20%)",
           backgroundImage: "url('/backdrop.jpg')",
         }}
-        className="fixed w-screen h-screen overflow-hidden"
+        className="fixed bg-cover w-screen h-screen overflow-hidden"
       >
-        <Home />
+        <AnimatePresence mode="wait">
+          {models.map(
+            (item, index) =>
+              snap.index === index && (
+                <Home key={item.url} desc={item.desc} text={item.text} />
+              )
+          )}{" "}
+        </AnimatePresence>
+        <AnimatePresence mode="wait">
+          {snap.isTech && <Techs key={"tech"} />}
+        </AnimatePresence>
         <Nav />
+
         <Header />
-        <div ref={ref} className="fixed w-full h-full">
+        <div className="fixed w-full h-full">
           <Canvas dvWidth={dvWidth} />
         </div>
       </div>
