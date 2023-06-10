@@ -10,6 +10,7 @@ import { AnimatePresence } from "framer-motion";
 import { modelList } from "./utils/models";
 import { state } from "./store";
 import Techs from "./components/Techs";
+import Tab from "./components/AiTab";
 
 function App() {
   const [dvWidth, setDvWidth] = useState(1024);
@@ -52,8 +53,8 @@ function App() {
         <AnimatePresence mode="wait">
           {snap.isTech && <Techs key={"tech"} />}
         </AnimatePresence>
+        <Tab />
         <Nav />
-
         <Header />
         <div className="fixed w-full h-full">
           <Canvas dvWidth={dvWidth} />
