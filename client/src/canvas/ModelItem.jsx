@@ -9,9 +9,11 @@ import { Decal, useGLTF, useTexture } from "@react-three/drei";
 import { useState, useEffect } from "react";
 import { state } from "../store";
 import { useSnapshot } from "valtio";
+import * as THREE from "three";
 // import { useInView } from "react-intersection-observer";
 
 import { Icons } from "./Icons";
+import { img } from "../../public/img";
 
 const ModelItem = ({ id, url, price }) => {
   // const { nodes, materials } = useGLTF("/gltf/NikeFiber2/NikeFiber.gltf");
@@ -22,10 +24,20 @@ const ModelItem = ({ id, url, price }) => {
   const material = Object.keys(materials);
   const color = snap.isClicked[id] ? "red" : "black";
 
-  // console.log(mesh, material);
-  // console.log(nodes);
+  const decalTexture = useTexture(snap.decalTextures[id]);
 
-  const decalTexture = useTexture("/bucks.png");
+  // const decalTexture = useTexture(
+  //   snap.decalTextures
+  //     ? `data:image/png;base64,${snap.decalTextures[id]}`
+  //     : "/threejs.png"
+  // );
+
+  // console.log(decalTexture);
+
+  decalTexture.wrapS = THREE.RepeatWrapping;
+  decalTexture.wrapT = THREE.RepeatWrapping;
+  decalTexture.repeat.set(3, 3);
+  // const decalTexture = "";
 
   return (
     <group rotation={[-Math.PI / 2, Math.PI, Math.PI / 2]}>
@@ -48,13 +60,15 @@ const ModelItem = ({ id, url, price }) => {
             receiveShadow
             dispose={null}
           >
-            {/* <Decal
-              position={[-0.25, -0.1, -0.4]}
-              scale={3.1}
-              map={decalTexture}
-              depthTest
-              depthWrite={false}
-            /> */}
+            {snap.decalVisibility[snap.index] && (
+              <Decal
+                position={[-0.25, -0.1, -0.4]}
+                scale={3.1}
+                map={decalTexture}
+                depthTest
+                depthWrite={false}
+              />
+            )}
           </mesh>
         ) : (
           <mesh

@@ -1,6 +1,7 @@
 import { proxy } from "valtio";
 
 import { modelList } from "../utils/models";
+// import { img } from "../../public/img";
 
 export const state = proxy({
   heartColor: "black",
@@ -11,4 +12,6 @@ export const state = proxy({
   indexLen: modelList.length,
   isClicked: [false, false],
   isTech: false,
+  decalTextures: ["/threejs.png", "/threejs.png", "/threejs.png"],
+  decalVisibility: [false, false, false],
 });

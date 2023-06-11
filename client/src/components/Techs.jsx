@@ -12,6 +12,10 @@ const Techs = () => {
         React
       </p>
       <p className="text-white flex justify-start gap-[15px] align-center font-black text-5md">
+        <img width="30px" src="/express.png" alt="icon" />
+        ExpressJS
+      </p>
+      <p className="text-white flex justify-start gap-[15px] align-center font-black text-5md">
         <img width="30px" src="/threejs.png" alt="icon" />
         ThreeJS
       </p>
@@ -26,6 +30,17 @@ const Techs = () => {
       <p className="text-white flex justify-start gap-[15px] align-center font-black text-5md">
         <img width="30px" src="/tail.png" alt="icon" />
         TailWindCSS
+      </p>
+      <p className="text-white flex justify-start gap-[15px] align-center font-black text-5md">
+        <img width="30px" src="/github.png" alt="icon" />
+        <a
+          className="no-underline text-blue-400"
+          href="https://github.com/CharlesXstorm/Nike3D"
+          target="_blank"
+          rel="noreferrer"
+        >
+          View code on github
+        </a>
       </p>
     </Card>
   );
