@@ -22,6 +22,8 @@ function App() {
 
   const snap = useSnapshot(state);
 
+  // console.log(snap.favourite);
+
   // console.log(models[0]);
 
   useEffect(() => {

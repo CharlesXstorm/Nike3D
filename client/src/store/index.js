@@ -10,8 +10,10 @@ export const state = proxy({
   direction: "left",
   index: 0,
   indexLen: modelList.length,
-  isClicked: [false, false],
+  isClicked: [false, false, false],
   isTech: false,
   decalTextures: ["/threejs.png", "/threejs.png", "/threejs.png"],
   decalVisibility: [false, false, false],
+  favourite: [],
+  cart: [],
 });

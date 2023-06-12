@@ -17,12 +17,13 @@ import * as THREE from "three";
 
 // import bold from "../";
 
-export function Icons({ color, id, price }) {
+export function Icons({ color, id, price, data }) {
   const { nodes } = useGLTF("/iconss.gltf");
   const snap = useSnapshot(state);
   const [scale, setScale] = useState(1);
   const cart = useRef();
   const heart = useRef();
+  const [datas] = useState({ ...data });
 
   useFrame((state, delta) => {
     // console.log(scale);
@@ -73,39 +74,56 @@ export function Icons({ color, id, price }) {
         <meshStandardMaterial />
       </motion.mesh>
 
-      <motion.mesh
-        ref={heart}
-        geometry={nodes.heartcart_4.geometry}
-        whileTap={{ scale: 1.1 }}
-        onTap={() => {
-          state.isClicked[id] = !state.isClicked[id];
-        }}
-        // onTap={() => {
-        //   setIsClicked((prev) => !prev);
-        // }}
+      {
+        //creating 3D heartIcon
+        <motion.mesh
+          ref={heart}
+          geometry={nodes.heartcart_4.geometry}
+          whileTap={{ scale: 1.1 }}
+          onTap={() => {
+            //toggle heartIcon click state
+            state.isClicked[id] = !state.isClicked[id];
 
-        // onTap={() => {
-        //   snap.heartColor === "black"
-        //     ? (state.heartColor = "red")
-        //     : (state.heartColor = "black");
-        // }}
-      >
-        <meshStandardMaterial />
-      </motion.mesh>
+            //converting the dataprop to string. It's easier to deal with in an Array
+            let jsondata = JSON.stringify(datas);
 
-      <mesh position={[0, -0.4, -1.2]} rotation={[0, Math.PI / 2, 0]}>
-        <boxGeometry args={[0.5, 1, 0.05]} />
-        <meshStandardMaterial
-          attach="material"
-          color={"lime"}
-          blending={THREE.AdditiveBlending}
-          roughness={0.2}
-          opacity={0.8}
-          envMapIntensity={2}
-          transparent
-        />
-      </mesh>
+            if (state.isClicked[id]) {
+              //if heartIcon toggle state is true
+              state.favourite = [...state.favourite, jsondata]; //add data to the favourite Array
+            } else {
+              //if heartIcon toggle state is false
+              if (snap.favourite.includes(jsondata)) {
+                //check if the data exist in the favourite Array
+                let favourite = [...snap.favourite]; //assign the proxy array to an operatable variable
+                let index = favourite.indexOf(jsondata); //get the index of the existing data
 
+                favourite.splice(index, 1); //remove the data
+                state.favourite = favourite; //assign the new array to favourite
+              }
+            }
+          }}
+        >
+          <meshStandardMaterial />
+        </motion.mesh>
+        //3D heartIcon created
+      }
+
+      {
+        //creating icon plane
+        <mesh position={[0, -0.4, -1.2]} rotation={[0, Math.PI / 2, 0]}>
+          <boxGeometry args={[0.5, 1, 0.05]} />
+          <meshStandardMaterial
+            attach="material"
+            color={"lime"}
+            blending={THREE.AdditiveBlending}
+            roughness={0.2}
+            opacity={0.8}
+            envMapIntensity={2}
+            transparent
+          />
+        </mesh>
+        //Icon plane created
+      }
       <Text3D
         size={0.12}
         scale-z={0.2}

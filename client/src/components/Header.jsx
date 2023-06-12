@@ -112,9 +112,12 @@ const Header = () => {
         </div>
       }
       {
-        //cart and fvourite icon
-        <div className="flex flex-col w-[50%] gap-1  justify-end items-end ">
-          <button style={{ width: `${width[1]}` }}>
+        //cart and favourite icon
+        <div className="flex flex-row w-[50%] gap-4  justify-end items-center ">
+          <button
+            className="pointer-events-auto cursor-pointer"
+            style={{ width: `${width[1]}` }}
+          >
             <svg
               version="1.1"
               id="cart"
@@ -173,15 +176,20 @@ const Header = () => {
             </svg>
           </button>
           <button
-            className="flex flex-row justify-center items-center"
+            className="relative pointer-events-auto cursor-pointer flex flex-row justify-center items-start"
             style={{ width: width[1] }}
           >
+            {snap.favourite.length > 0 && (
+              <span className="absolute right-0 flex items-center justify-center w-[10%] h-[10%] p-2 rounded-full bg-red-500 text-white text-[0.8em]">
+                {snap.favourite.length}
+              </span>
+            )}
             <svg
               version="1.1"
               id="heartsvg"
               x="0px"
               y="0px"
-              width="80%"
+              width="60%"
               viewBox="0 0 200 200"
               enableBackground="new 0 0 200 200"
             >

@@ -53,9 +53,12 @@ const Tab = () => {
       }
       setIsGenerating(true);
 
-      const response = await axios.post("http://localhost:8080/api/v1/dalle", {
-        prompt,
-      });
+      const response = await axios.post(
+        "https://eveai.cyclic.app/api/v1/dalle",
+        {
+          prompt,
+        }
+      );
 
       // console.log(response.data);
       state.decalTextures[
@@ -129,12 +132,18 @@ const Tab = () => {
               className="self-center w-[80px] pointer-cursor rounded-s-xl p-2 backdrop-blur-md border"
               onClick={() => {
                 setAiTab((prev) => !prev);
+
+                if (!aiTab) {
+                  setTimeout(() => {
+                    speech();
+                  }, [1500]);
+                }
               }}
-              onMouseOut={() =>
-                setTimeout(() => {
-                  speech();
-                }, [1500])
-              }
+              // onMouseOut={() =>
+              //   setTimeout(() => {
+              //     speech();
+              //   }, [1500])
+              // }
             >
               <img width="80%" src="/ai.png" alt="ai" />
             </button>

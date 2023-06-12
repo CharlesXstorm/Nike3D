@@ -55,6 +55,7 @@ const Models = ({ props }) => {
                   id={item.id}
                   url={item.url}
                   price={item.price}
+                  data={item}
                 />
               )
           )}
