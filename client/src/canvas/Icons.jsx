@@ -111,7 +111,7 @@ export function Icons({ color, id, price }) {
         scale-z={0.2}
         curveSegments={32}
         bevelEnabled
-        bevelSize={0.01}
+        bevelSize={0.006}
         bevelThickness={0.06}
         rotation-x={[-Math.PI / 2]}
         rotation-y={[-Math.PI / 2]}

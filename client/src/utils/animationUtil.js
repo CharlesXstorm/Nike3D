@@ -23,3 +23,21 @@ export const textAnimation = (direction, type = "words") => {
     transition: { type: "spring", duration: 0.5 },
   };
 };
+
+export const opacityAnimation = () => {
+  return {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
+    transition: { duration: 0.5, ease: "easeInOut" },
+  };
+};
+
+export const speech = (setSpeech) => {
+  const list = ["Hi, I'm Eve.. ", "your personal AI design assistant.."];
+
+  for (let words in list) {
+    // console.log(list[words]);
+    setSpeech(list[words]);
+  }
+};

@@ -1,7 +1,7 @@
 export const modelList = [
   {
     id: 0,
-    url: "/gltf/NikeFiber.gltf",
+    url: "/gltf/nikeair/nikeair.gltf",
     price: "N25000",
     text: (
       <>
@@ -23,8 +23,8 @@ export const modelList = [
   },
   {
     id: 2,
-    url: "/gltf/NikeFiber2/NikeFiber.gltf",
-    price: "N17000",
+    url: "/gltf/jordan/jordan.gltf",
+    price: "N35000",
     text: (
       <>
         JUST
