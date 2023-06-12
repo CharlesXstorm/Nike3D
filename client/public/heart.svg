@@ -1,9 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="cart" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="200px" height="200px" viewBox="0 0 200 200" enable-background="new 0 0 200 200" xml:space="preserve">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M100.187,44.869c1.772-1.672,3.641-3.521,5.601-5.267
+
+<svg version="1.1" id="cart" x="0px" y="0px"
+	 width="200px" height="200px" viewBox="0 0 200 200" enableBackground="new 0 0 200 200" >
+<path fillRule="evenodd" clipRule="evenodd" d="M100.187,44.869c1.772-1.672,3.641-3.521,5.601-5.267
 	c6.774-6.033,14.203-11.009,22.797-14.132c8.406-3.055,16.982-3.169,25.654-1.625c10.779,1.919,20.257,6.461,28.029,14.285
 	c7.71,7.76,12.232,17.175,14.041,27.887c3.078,18.235-1.45,34.704-11.847,49.753c-5.935,8.592-12.997,16.204-20.838,23.031
 	c-10.329,8.994-20.919,17.688-31.399,26.509c-8.909,7.498-17.537,15.282-25.143,24.146c-3.581,4.174-10.287,4.392-13.799,0.309
