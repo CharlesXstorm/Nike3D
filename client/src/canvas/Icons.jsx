@@ -23,7 +23,7 @@ export function Icons({ color, id, price, data }) {
   const [scale, setScale] = useState(1);
   const cart = useRef();
   const heart = useRef();
-  const [datas] = useState({ ...data });
+  // const [datas] = useState({ ...data });
 
   useFrame((state, delta) => {
     // console.log(scale);
@@ -32,6 +32,35 @@ export function Icons({ color, id, price, data }) {
     easing.dampC(cart.current.material.color, snap.cartColor, 0.25, delta);
     easing.dampE(cart.current.scale, [scale, scale, scale], 0.05, delta);
   });
+
+  const addToCart = () => {
+    setScale(1.1);
+    setTimeout(() => {
+      setScale(1);
+    }, [50]);
+    let jsondata = JSON.stringify(data);
+
+    if (!snap.cart.includes(jsondata)) {
+      state.cart = [...snap.cart, jsondata];
+      state.alertBox.text = "Added to cart";
+      state.alertBox.progress = true;
+      state.alertBox.error = false;
+      state.isAdded[snap.index] = true;
+      setTimeout(() => {
+        state.isAdded[snap.index] = false;
+      }, [2100]);
+    } else {
+      state.alertBox.text = "Already added";
+      state.alertBox.progress = false;
+      state.alertBox.error = true;
+      state.isAdded[snap.index] = true;
+      setTimeout(() => {
+        state.isAdded[snap.index] = false;
+      }, [1500]);
+      // alert(`already added ${data.name} to cart`);
+    }
+  };
+
   return (
     <group
       // rotation={[0, -Math.PI / 2, 0]}
@@ -41,12 +70,7 @@ export function Icons({ color, id, price, data }) {
     >
       <motion.mesh
         geometry={nodes.heartcart_1.geometry}
-        onClick={() => {
-          setScale(1.1);
-          setTimeout(() => {
-            setScale(1);
-          }, [50]);
-        }}
+        onClick={addToCart}
 
         // onClick={() => console.log("clicked")}
       >
@@ -64,12 +88,7 @@ export function Icons({ color, id, price, data }) {
       <motion.mesh
         ref={cart}
         geometry={nodes.heartcart_3.geometry}
-        onClick={() => {
-          setScale(1.1);
-          setTimeout(() => {
-            setScale(1);
-          }, [50]);
-        }}
+        onClick={addToCart}
       >
         <meshStandardMaterial />
       </motion.mesh>
@@ -85,7 +104,7 @@ export function Icons({ color, id, price, data }) {
             state.isClicked[id] = !state.isClicked[id];
 
             //converting the dataprop to string. It's easier to deal with in an Array
-            let jsondata = JSON.stringify(datas);
+            let jsondata = JSON.stringify(data);
 
             if (state.isClicked[id]) {
               //if heartIcon toggle state is true

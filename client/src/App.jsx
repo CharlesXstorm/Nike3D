@@ -22,7 +22,7 @@ function App() {
 
   const snap = useSnapshot(state);
 
-  // console.log(snap.favourite);
+  // console.log(snap.cart);
 
   // console.log(models[0]);
 
@@ -51,9 +51,6 @@ function App() {
                 <Home key={item.url} desc={item.desc} text={item.text} />
               )
           )}{" "}
-        </AnimatePresence>
-        <AnimatePresence mode="wait">
-          {snap.isTech && <Techs key={"tech"} />}
         </AnimatePresence>
         <Tab />
         <Nav />

@@ -36,6 +36,9 @@ const Tab = () => {
   const speech = () => {
     setTimeout(() => {
       if (cnt >= list.length) {
+        setTimeout(() => {
+          setEve("");
+        }, [3000]);
         return;
       }
       setEve(list[cnt]);
@@ -121,7 +124,9 @@ const Tab = () => {
             {!aiTab && (
               <motion.div
                 {...opacityAnimation}
-                className="self-start w-[120px] p-4 backdrop-blur-md rounded-s-xl"
+                className={`self-start w-[120px] p-4 ${
+                  eve != "" ? "backdrop-blur-md" : ""
+                } rounded-s-xl`}
               >
                 <p className="text-white text-center">{eve} </p>
               </motion.div>
@@ -150,8 +155,18 @@ const Tab = () => {
             <button
               className="self-center w-[80px] pointer-cursor rounded-s-xl p-2 backdrop-blur-md"
               onClick={() => {
-                state.decalVisibility[snap.index] =
-                  !state.decalVisibility[snap.index];
+                if (snap.decalTextures[snap.index] != "/threejs.png") {
+                  state.decalVisibility[snap.index] =
+                    !state.decalVisibility[snap.index];
+                } else {
+                  state.alertBox.text = "No textures found";
+                  state.alertBox.progress = false;
+                  state.alertBox.error = true;
+                  state.isAdded[snap.index] = true;
+                  setTimeout(() => {
+                    state.isAdded[snap.index] = false;
+                  }, [2000]);
+                }
               }}
             >
               <img width="50%" src="/reload.png" alt="ai" />

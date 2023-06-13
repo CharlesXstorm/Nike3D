@@ -3,7 +3,7 @@ import Card from "./UI/Card";
 
 const Techs = () => {
   return (
-    <Card position="left">
+    <Card position="left" p="20">
       <p className="text-white flex justify-start gap-[15px] align-center font-black text-5md">
         Created with:
       </p>

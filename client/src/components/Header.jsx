@@ -3,6 +3,10 @@
 import { useEffect, useState } from "react";
 import { useSnapshot } from "valtio";
 import { state } from "../store";
+import AlertBox from "./UI/AlertBox";
+import { AnimatePresence } from "framer-motion";
+import Techs from "./Techs";
+import Cart from "./Cart";
 // import { motion } from "framer-motion";
 
 const Header = () => {
@@ -115,9 +119,14 @@ const Header = () => {
         //cart and favourite icon
         <div className="flex flex-row w-[50%] gap-4  justify-end items-center ">
           <button
-            className="pointer-events-auto cursor-pointer"
+            className="relative pointer-events-auto cursor-pointer"
             style={{ width: `${width[1]}` }}
           >
+            {snap.cart.length > 0 && (
+              <span className="absolute right-0 top-2 flex items-center justify-center w-[10%] h-[10%] p-2 rounded-full bg-red-500 text-white text-[0.8em]">
+                {snap.cart.length}
+              </span>
+            )}
             <svg
               version="1.1"
               id="cart"
@@ -209,6 +218,21 @@ const Header = () => {
           </button>
         </div>
       }
+      <AnimatePresence mode="wait">
+        {snap.isTech && <Techs key={"tech"} />}
+      </AnimatePresence>
+      <AnimatePresence mode="wait">
+        <Cart />
+      </AnimatePresence>
+      <AnimatePresence mode="wait">
+        {snap.isAdded[snap.index] && (
+          <AlertBox
+            text={snap.alertBox.text}
+            progress={snap.alertBox.progress}
+            error={snap.alertBox.error}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 };
