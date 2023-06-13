@@ -80,12 +80,12 @@ const Tab = () => {
   };
 
   return (
-    <div className="absolute pointer-events-none right-0 z-10  h-screen p-0 xl-p-10 flex justify-start items-center align-center">
+    <div className="absolute pointer-events-none right-0 z-10 h-screen p-0 xl-p-10 flex justify-start items-center align-center">
       <div
         // className={`flex ${
         //   window.innerWidth < 1025 && !aiTab ? "flex-col" : "flex-row"
         // } gap-1em justify-end items-end align-center pointer-events-auto w-[100%] border-2 border-solid border-red-500`}
-        className={`flex flex-row gap-1em justify-center items-center pointer-events-auto w-[100%]`}
+        className={`flex flex-row gap-[1em] justify-center items-center pointer-events-auto w-[100%]`}
         style={{ transition: "all 1s linear" }}
       >
         <AnimatePresence>
@@ -116,9 +116,10 @@ const Tab = () => {
         </AnimatePresence>
 
         <div
-          className={`flex ${
-            window.innerWidth < 1025 && !aiTab ? "flex-col" : "flex-row"
-          } justify-center items-center`}
+          // className={`flex ${
+          //   window.innerWidth < 1025 && !aiTab ? "flex-col" : "flex-row"
+          // } justify-center items-center`}
+          className={`flex flex-row justify-center items-center`}
         >
           <AnimatePresence>
             {!aiTab && (
@@ -128,7 +129,12 @@ const Tab = () => {
                   eve != "" ? "backdrop-blur-md" : ""
                 } rounded-s-xl`}
               >
-                <p className="text-white text-center">{eve} </p>
+                <p
+                  className="text-white italic text-center"
+                  style={{ fontFamily: "montserrat" }}
+                >
+                  {eve}{" "}
+                </p>
               </motion.div>
             )}
           </AnimatePresence>

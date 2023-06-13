@@ -13,6 +13,7 @@ const Header = () => {
   const [width, setWidth] = useState(["10%", "10%"]);
   const [xDist, setXdist] = useState("0px");
   const [isClicked, setIsClicked] = useState(false);
+  const [isCart, setIsCart] = useState(false);
 
   const snap = useSnapshot(state);
 
@@ -31,7 +32,7 @@ const Header = () => {
     return () => window.removeEventListener("resize", calcWidth);
   }, []);
   return (
-    <div className="absolute pointer-events-none p-10 xl:p-20 xl:pt-5 pt-5 w-full top-0 flex justify-center items-start gap-[10%] z-10">
+    <div className="fixed pointer-events-none p-10 xl:p-20 xl:pt-5 pt-5 w-full top-0 flex justify-center items-start gap-[10%] z-10">
       {
         //collapsible tech stack icon
         <div className="flex w-[50%] pointer-events-auto justify-start items-center">
@@ -55,6 +56,7 @@ const Header = () => {
                   break;
               }
               // xDist === "60px" && !isClicked ? setXdist("60px") : setXdist("0px");
+              setIsCart(false);
               setIsClicked((prev) => !prev);
 
               state.isTech = !snap.isTech;
@@ -121,6 +123,10 @@ const Header = () => {
           <button
             className="relative pointer-events-auto cursor-pointer"
             style={{ width: `${width[1]}` }}
+            onClick={() => {
+              setIsCart((prev) => !prev);
+              state.isTech = false;
+            }}
           >
             {snap.cart.length > 0 && (
               <span className="absolute right-0 top-2 flex items-center justify-center w-[10%] h-[10%] p-2 rounded-full bg-red-500 text-white text-[0.8em]">
@@ -221,9 +227,7 @@ const Header = () => {
       <AnimatePresence mode="wait">
         {snap.isTech && <Techs key={"tech"} />}
       </AnimatePresence>
-      <AnimatePresence mode="wait">
-        <Cart />
-      </AnimatePresence>
+      <AnimatePresence mode="wait">{isCart && <Cart />}</AnimatePresence>
       <AnimatePresence mode="wait">
         {snap.isAdded[snap.index] && (
           <AlertBox

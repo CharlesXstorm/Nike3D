@@ -9,7 +9,7 @@ import { AnimatePresence } from "framer-motion";
 
 import { modelList } from "./utils/models";
 import { state } from "./store";
-import Techs from "./components/Techs";
+// import Techs from "./components/Techs";
 import Tab from "./components/AiTab";
 
 function App() {
@@ -54,7 +54,7 @@ function App() {
         </AnimatePresence>
         <Tab />
         <Nav />
-        <Header />
+        <Header cart={snap.cart} />
         <div className="fixed w-full h-full">
           <Canvas dvWidth={dvWidth} />
         </div>

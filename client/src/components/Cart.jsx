@@ -11,7 +11,7 @@ import { textAnimation } from "../utils/animationUtil";
 const Cart = () => {
   const snap = useSnapshot(state);
   return (
-    <Card position={"right"} p="2">
+    <Card position={"right"} p="default">
       <>
         {snap.cart.map((item) => (
           <div
@@ -37,7 +37,21 @@ const Cart = () => {
           </div>
         ))}
       </>
-      <CustomButton text={"check out"} width={"full"} />
+      {snap.cart.length === 0 && (
+        <div
+          {...textAnimation("default", "spring")}
+          key={"empty"}
+          className="flex flex-row gap-4 text-white items-center border rounded-md p-4"
+        >
+          <p className="text-white" style={{ fontFamily: "montserrat" }}>
+            There are no items in cart
+          </p>
+          <span className="material-symbols-outlined text-red-500">error</span>
+        </div>
+      )}
+      {!snap.cart.length === 0 && (
+        <CustomButton text={"check out"} width={"full"} />
+      )}
     </Card>
   );
 };
