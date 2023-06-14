@@ -16,7 +16,7 @@ function App() {
   const [dvWidth, setDvWidth] = useState(1024);
   const [models] = useState([...modelList]);
   const [loaded, setLoaded] = useState(false);
-  const [done, setDone] = useState(false);
+  // const [done, setDone] = useState(false);
 
   const snap = useSnapshot(state);
 
@@ -26,9 +26,9 @@ function App() {
       setTimeout(() => {
         setLoaded(true);
       }, [1500]);
-      setTimeout(() => {
-        setDone(true);
-      }, [3000]);
+      // setTimeout(() => {
+      //   setDone(true);
+      // }, [3000]);
     });
   }, []);
 
@@ -55,7 +55,7 @@ function App() {
           <Canvas dvWidth={dvWidth} />
         </div>
 
-        {!done &&
+        {!loaded &&
           createPortal(
             <Loader loaded={loaded} />,
             document.getElementById("loader")

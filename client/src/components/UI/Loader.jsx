@@ -18,8 +18,11 @@ const Loader = ({ loaded }) => {
         zIndex: 10,
         backgroundImage: "url('/backdrop.jpg')",
         backgroundSize: "cover",
+        position: "fixed",
+        top: "0px",
+        left: "0px",
       }}
-      className="fixed flex flex-row justify-center items-center text-white top-0 left-0 bottom-0 right-0 w-screen h-screen"
+      className="flex flex-row justify-center items-center w-screen h-screen"
     >
       <div className="flex flex-col gap-4 justify-center items-center">
         <svg
