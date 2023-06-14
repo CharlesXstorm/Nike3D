@@ -13,7 +13,6 @@ import * as THREE from "three";
 // import { useInView } from "react-intersection-observer";
 
 import { Icons } from "./Icons";
-import { img } from "../../public/img";
 
 const ModelItem = ({ id, url, price, data }) => {
   // const { nodes, materials } = useGLTF("/gltf/NikeFiber2/NikeFiber.gltf");

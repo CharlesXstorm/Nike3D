@@ -59,6 +59,7 @@ const Header = () => {
               }
               // xDist === "60px" && !isClicked ? setXdist("60px") : setXdist("0px");
               setIsCart(false);
+              setIsFavourite(false);
               setIsClicked((prev) => !prev);
 
               state.isTech = !snap.isTech;
@@ -128,6 +129,8 @@ const Header = () => {
             onClick={() => {
               setIsCart((prev) => !prev);
               setIsFavourite(false);
+              setXdist("0px");
+              setIsClicked(false);
               state.isTech = false;
             }}
           >
@@ -199,6 +202,8 @@ const Header = () => {
             onClick={() => {
               setIsFavourite((prev) => !prev);
               setIsCart(false);
+              setXdist("0px");
+              setIsClicked(false);
               state.isTech = false;
             }}
           >

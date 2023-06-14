@@ -85,14 +85,14 @@ const Tab = () => {
         // className={`flex ${
         //   window.innerWidth < 1025 && !aiTab ? "flex-col" : "flex-row"
         // } gap-1em justify-end items-end align-center pointer-events-auto w-[100%] border-2 border-solid border-red-500`}
-        className="flex flex-row gap-[1em] justify-center items-center pointer-events-auto w-[100%]"
+        className="flex flex-row gap-[1em] justify-center items-center w-[100%]"
         // style={{ transition: "all 1s linear" }}
       >
         <AnimatePresence>
           {aiTab && (
             <motion.div
               // className="w-[180px] h-[60px] glassmorphism "
-              className="flex flex-col justify-end items-end"
+              className="flex flex-col justify-end items-end pointer-events-auto"
               {...textAnimation("right", "card")}
             >
               <textarea
@@ -119,15 +119,16 @@ const Tab = () => {
           // className={`flex ${
           //   window.innerWidth < 1025 && !aiTab ? "flex-col" : "flex-row"
           // } justify-center items-center`}
-          className={`flex flex-row pointer-events-auto justify-center items-center`}
+          className={`flex flex-row justify-center items-center `}
         >
           <AnimatePresence>
             {!aiTab && (
               <motion.div
                 {...opacityAnimation}
+                // {...textAnimation("right")}
                 className={`self-start w-[120px] p-4 ${
                   eve != "" ? "backdrop-blur-md" : ""
-                } rounded-s-xl`}
+                } rounded-s-xl pointer-events-none`}
               >
                 <p
                   className="text-white italic text-center"
@@ -138,7 +139,7 @@ const Tab = () => {
               </motion.div>
             )}
           </AnimatePresence>
-          <div className="flex self-end flex-col">
+          <div className="flex self-end flex-col pointer-events-auto">
             <button
               className="self-center w-[80px] pointer-cursor rounded-s-xl p-2 backdrop-blur-md border"
               onClick={() => {
