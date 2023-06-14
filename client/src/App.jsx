@@ -54,7 +54,7 @@ function App() {
 
         {!done &&
           createPortal(
-            <Loader loaded={loaded} setDone={setDone} />,
+            <Loader loaded={loaded} setLoaded={setLoaded} setDone={setDone} />,
             document.getElementById("loader")
           )}
       </div>

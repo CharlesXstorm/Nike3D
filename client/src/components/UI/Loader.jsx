@@ -3,14 +3,15 @@
 import { useEffect } from "react";
 import style from "./Loader.module.css";
 
-const Loader = ({ loaded, setDone }) => {
+const Loader = ({ loaded, setDone, setLoaded }) => {
   useEffect(() => {
     if (loaded) {
       setTimeout(() => {
         setDone(true);
+        setLoaded(false);
       }, [1500]);
     }
-  }, [loaded, setDone]);
+  }, [loaded, setDone, setLoaded]);
   return (
     <div
       style={{
