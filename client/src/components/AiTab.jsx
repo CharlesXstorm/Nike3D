@@ -36,6 +36,9 @@ const Tab = () => {
   const speech = () => {
     setTimeout(() => {
       if (cnt >= list.length) {
+        setTimeout(() => {
+          setEve("");
+        }, [3000]);
         return;
       }
       setEve(list[cnt]);
@@ -53,9 +56,12 @@ const Tab = () => {
       }
       setIsGenerating(true);
 
-      const response = await axios.post("http://localhost:8080/api/v1/dalle", {
-        prompt,
-      });
+      const response = await axios.post(
+        "https://eveai.cyclic.app/api/v1/dalle",
+        {
+          prompt,
+        }
+      );
 
       // console.log(response.data);
       state.decalTextures[
@@ -74,19 +80,19 @@ const Tab = () => {
   };
 
   return (
-    <div className="absolute pointer-events-none right-0 z-10  h-screen p-0 xl-p-10 flex justify-start items-center align-center">
+    <div className="absolute pointer-events-none right-0 z-10 h-screen p-0 xl-p-10 flex justify-start items-center align-center">
       <div
         // className={`flex ${
         //   window.innerWidth < 1025 && !aiTab ? "flex-col" : "flex-row"
         // } gap-1em justify-end items-end align-center pointer-events-auto w-[100%] border-2 border-solid border-red-500`}
-        className={`flex flex-row gap-1em justify-center items-center pointer-events-auto w-[100%]`}
-        style={{ transition: "all 1s linear" }}
+        className="flex flex-row gap-[1em] justify-center items-center w-[100%]"
+        // style={{ transition: "all 1s linear" }}
       >
         <AnimatePresence>
           {aiTab && (
             <motion.div
               // className="w-[180px] h-[60px] glassmorphism "
-              className="flex flex-col justify-end items-end"
+              className="flex flex-col justify-end items-end pointer-events-auto"
               {...textAnimation("right", "card")}
             >
               <textarea
@@ -110,39 +116,64 @@ const Tab = () => {
         </AnimatePresence>
 
         <div
-          className={`flex ${
-            window.innerWidth < 1025 && !aiTab ? "flex-col" : "flex-row"
-          } justify-center items-center`}
+          // className={`flex ${
+          //   window.innerWidth < 1025 && !aiTab ? "flex-col" : "flex-row"
+          // } justify-center items-center`}
+          className={`flex flex-row justify-center items-center `}
         >
           <AnimatePresence>
             {!aiTab && (
               <motion.div
                 {...opacityAnimation}
-                className="self-start w-[120px] p-4 backdrop-blur-md rounded-s-xl"
+                // {...textAnimation("right")}
+                className={`self-start w-[120px] p-4 ${
+                  eve != "" ? "backdrop-blur-md" : ""
+                } rounded-s-xl pointer-events-none`}
               >
-                <p className="text-white text-center">{eve} </p>
+                <p
+                  className="text-white italic text-center"
+                  style={{ fontFamily: "montserrat" }}
+                >
+                  {eve}{" "}
+                </p>
               </motion.div>
             )}
           </AnimatePresence>
-          <div className="flex self-end flex-col">
+          <div className="flex self-end flex-col pointer-events-auto">
             <button
               className="self-center w-[80px] pointer-cursor rounded-s-xl p-2 backdrop-blur-md border"
               onClick={() => {
                 setAiTab((prev) => !prev);
+
+                if (!aiTab) {
+                  setTimeout(() => {
+                    speech();
+                  }, [1500]);
+                }
               }}
-              onMouseOut={() =>
-                setTimeout(() => {
-                  speech();
-                }, [1500])
-              }
+              // onMouseOut={() =>
+              //   setTimeout(() => {
+              //     speech();
+              //   }, [1500])
+              // }
             >
               <img width="80%" src="/ai.png" alt="ai" />
             </button>
             <button
               className="self-center w-[80px] pointer-cursor rounded-s-xl p-2 backdrop-blur-md"
               onClick={() => {
-                state.decalVisibility[snap.index] =
-                  !state.decalVisibility[snap.index];
+                if (snap.decalTextures[snap.index] != "/threejs.png") {
+                  state.decalVisibility[snap.index] =
+                    !state.decalVisibility[snap.index];
+                } else {
+                  state.alertBox.text = "No textures found";
+                  state.alertBox.progress = false;
+                  state.alertBox.error = true;
+                  state.isAdded[snap.index] = true;
+                  setTimeout(() => {
+                    state.isAdded[snap.index] = false;
+                  }, [2000]);
+                }
               }}
             >
               <img width="50%" src="/reload.png" alt="ai" />

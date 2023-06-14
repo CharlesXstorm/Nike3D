@@ -17,12 +17,13 @@ import * as THREE from "three";
 
 // import bold from "../";
 
-export function Icons({ color, id, price }) {
+export function Icons({ color, id, price, data }) {
   const { nodes } = useGLTF("/iconss.gltf");
   const snap = useSnapshot(state);
   const [scale, setScale] = useState(1);
   const cart = useRef();
   const heart = useRef();
+  // const [datas] = useState({ ...data });
 
   useFrame((state, delta) => {
     // console.log(scale);
@@ -31,6 +32,35 @@ export function Icons({ color, id, price }) {
     easing.dampC(cart.current.material.color, snap.cartColor, 0.25, delta);
     easing.dampE(cart.current.scale, [scale, scale, scale], 0.05, delta);
   });
+
+  const addToCart = () => {
+    setScale(1.1);
+    setTimeout(() => {
+      setScale(1);
+    }, [50]);
+    let jsondata = JSON.stringify(data);
+
+    if (!snap.cart.includes(jsondata)) {
+      state.cart = [...snap.cart, jsondata];
+      state.alertBox.text = "Added to cart";
+      state.alertBox.progress = true;
+      state.alertBox.error = false;
+      state.isAdded[snap.index] = true;
+      setTimeout(() => {
+        state.isAdded[snap.index] = false;
+      }, [2100]);
+    } else {
+      state.alertBox.text = "Already added";
+      state.alertBox.progress = false;
+      state.alertBox.error = true;
+      state.isAdded[snap.index] = true;
+      setTimeout(() => {
+        state.isAdded[snap.index] = false;
+      }, [1500]);
+      // alert(`already added ${data.name} to cart`);
+    }
+  };
+
   return (
     <group
       // rotation={[0, -Math.PI / 2, 0]}
@@ -40,12 +70,7 @@ export function Icons({ color, id, price }) {
     >
       <motion.mesh
         geometry={nodes.heartcart_1.geometry}
-        onClick={() => {
-          setScale(1.1);
-          setTimeout(() => {
-            setScale(1);
-          }, [50]);
-        }}
+        onClick={addToCart}
 
         // onClick={() => console.log("clicked")}
       >
@@ -63,49 +88,61 @@ export function Icons({ color, id, price }) {
       <motion.mesh
         ref={cart}
         geometry={nodes.heartcart_3.geometry}
-        onClick={() => {
-          setScale(1.1);
-          setTimeout(() => {
-            setScale(1);
-          }, [50]);
-        }}
+        onClick={addToCart}
       >
         <meshStandardMaterial />
       </motion.mesh>
 
-      <motion.mesh
-        ref={heart}
-        geometry={nodes.heartcart_4.geometry}
-        whileTap={{ scale: 1.1 }}
-        onTap={() => {
-          state.isClicked[id] = !state.isClicked[id];
-        }}
-        // onTap={() => {
-        //   setIsClicked((prev) => !prev);
-        // }}
+      {
+        //creating 3D heartIcon
+        <motion.mesh
+          ref={heart}
+          geometry={nodes.heartcart_4.geometry}
+          whileTap={{ scale: 1.1 }}
+          onTap={() => {
+            //toggle heartIcon click state
+            state.isClicked[id] = !state.isClicked[id];
 
-        // onTap={() => {
-        //   snap.heartColor === "black"
-        //     ? (state.heartColor = "red")
-        //     : (state.heartColor = "black");
-        // }}
-      >
-        <meshStandardMaterial />
-      </motion.mesh>
+            //converting the dataprop to string. It's easier to deal with in an Array
+            let jsondata = JSON.stringify(data);
 
-      <mesh position={[0, -0.4, -1.2]} rotation={[0, Math.PI / 2, 0]}>
-        <boxGeometry args={[0.5, 1, 0.05]} />
-        <meshStandardMaterial
-          attach="material"
-          color={"lime"}
-          blending={THREE.AdditiveBlending}
-          roughness={0.2}
-          opacity={0.8}
-          envMapIntensity={2}
-          transparent
-        />
-      </mesh>
+            if (state.isClicked[id]) {
+              //if heartIcon toggle state is true
+              state.favourite = [...state.favourite, jsondata]; //add data to the favourite Array
+            } else {
+              //if heartIcon toggle state is false
+              if (snap.favourite.includes(jsondata)) {
+                //check if the data exist in the favourite Array
+                let favourite = [...snap.favourite]; //assign the proxy array to an operatable variable
+                let index = favourite.indexOf(jsondata); //get the index of the existing data
 
+                favourite.splice(index, 1); //remove the data
+                state.favourite = favourite; //assign the new array to favourite
+              }
+            }
+          }}
+        >
+          <meshStandardMaterial />
+        </motion.mesh>
+        //3D heartIcon created
+      }
+
+      {
+        //creating icon plane
+        <mesh position={[0, -0.4, -1.2]} rotation={[0, Math.PI / 2, 0]}>
+          <boxGeometry args={[0.5, 1, 0.05]} />
+          <meshStandardMaterial
+            attach="material"
+            color={"lime"}
+            blending={THREE.AdditiveBlending}
+            roughness={0.2}
+            opacity={0.8}
+            envMapIntensity={2}
+            transparent
+          />
+        </mesh>
+        //Icon plane created
+      }
       <Text3D
         size={0.12}
         scale-z={0.2}

@@ -9,7 +9,7 @@ import { AnimatePresence } from "framer-motion";
 
 import { modelList } from "./utils/models";
 import { state } from "./store";
-import Techs from "./components/Techs";
+// import Techs from "./components/Techs";
 import Tab from "./components/AiTab";
 
 function App() {
@@ -21,6 +21,8 @@ function App() {
   // });
 
   const snap = useSnapshot(state);
+
+  // console.log(snap.cart);
 
   // console.log(models[0]);
 
@@ -50,12 +52,9 @@ function App() {
               )
           )}{" "}
         </AnimatePresence>
-        <AnimatePresence mode="wait">
-          {snap.isTech && <Techs key={"tech"} />}
-        </AnimatePresence>
         <Tab />
         <Nav />
-        <Header />
+        <Header cart={snap.cart} />
         <div className="fixed w-full h-full">
           <Canvas dvWidth={dvWidth} />
         </div>

@@ -3,7 +3,7 @@ import Card from "./UI/Card";
 
 const Techs = () => {
   return (
-    <Card position="left">
+    <Card position="left" p="full">
       <p className="text-white flex justify-start gap-[15px] align-center font-black text-5md">
         Created with:
       </p>
@@ -34,7 +34,7 @@ const Techs = () => {
       <p className="text-white flex justify-start gap-[15px] align-center font-black text-5md">
         <img width="30px" src="/github.png" alt="icon" />
         <a
-          className="no-underline text-blue-500"
+          className="no-underline text-blue-300"
           href="https://github.com/CharlesXstorm/Nike3D"
           target="_blank"
           rel="noreferrer"

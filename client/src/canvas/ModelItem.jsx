@@ -13,9 +13,8 @@ import * as THREE from "three";
 // import { useInView } from "react-intersection-observer";
 
 import { Icons } from "./Icons";
-import { img } from "../../public/img";
 
-const ModelItem = ({ id, url, price }) => {
+const ModelItem = ({ id, url, price, data }) => {
   // const { nodes, materials } = useGLTF("/gltf/NikeFiber2/NikeFiber.gltf");
   const { nodes, materials } = useGLTF(url);
   const snap = useSnapshot(state);
@@ -25,6 +24,8 @@ const ModelItem = ({ id, url, price }) => {
   const color = snap.isClicked[id] ? "red" : "black";
 
   const decalTexture = useTexture(snap.decalTextures[id]);
+
+  // console.log(snap.favourite.length);
 
   // const decalTexture = useTexture(
   //   snap.decalTextures
@@ -79,7 +80,7 @@ const ModelItem = ({ id, url, price }) => {
         )
       )}
 
-      <Icons color={color} id={id} price={price} />
+      <Icons color={color} id={id} price={price} data={data} />
     </group>
   );
 };

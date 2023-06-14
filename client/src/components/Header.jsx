@@ -3,12 +3,19 @@
 import { useEffect, useState } from "react";
 import { useSnapshot } from "valtio";
 import { state } from "../store";
+import AlertBox from "./UI/AlertBox";
+import { AnimatePresence } from "framer-motion";
+import Techs from "./Techs";
+import Cart from "./Cart";
+import Favourite from "./Favourite";
 // import { motion } from "framer-motion";
 
 const Header = () => {
   const [width, setWidth] = useState(["10%", "10%"]);
   const [xDist, setXdist] = useState("0px");
   const [isClicked, setIsClicked] = useState(false);
+  const [isCart, setIsCart] = useState(false);
+  const [isFavourite, setIsFavourite] = useState(false);
 
   const snap = useSnapshot(state);
 
@@ -27,7 +34,7 @@ const Header = () => {
     return () => window.removeEventListener("resize", calcWidth);
   }, []);
   return (
-    <div className="absolute pointer-events-none p-10 xl:p-20 xl:pt-5 pt-5 w-full top-0 flex justify-center items-start gap-[10%] z-10">
+    <div className="fixed pointer-events-none p-10 xl:p-20 xl:pt-5 pt-5 w-full top-0 flex justify-center items-start gap-[10%] z-10">
       {
         //collapsible tech stack icon
         <div className="flex w-[50%] pointer-events-auto justify-start items-center">
@@ -51,6 +58,8 @@ const Header = () => {
                   break;
               }
               // xDist === "60px" && !isClicked ? setXdist("60px") : setXdist("0px");
+              setIsCart(false);
+              setIsFavourite(false);
               setIsClicked((prev) => !prev);
 
               state.isTech = !snap.isTech;
@@ -112,9 +121,24 @@ const Header = () => {
         </div>
       }
       {
-        //cart and fvourite icon
-        <div className="flex flex-col w-[50%] gap-1  justify-end items-end ">
-          <button style={{ width: `${width[1]}` }}>
+        //cart and favourite icon
+        <div className="flex flex-row w-[50%] gap-4  justify-end items-center ">
+          <button
+            className="relative pointer-events-auto cursor-pointer"
+            style={{ width: `${width[1]}` }}
+            onClick={() => {
+              setIsCart((prev) => !prev);
+              setIsFavourite(false);
+              setXdist("0px");
+              setIsClicked(false);
+              state.isTech = false;
+            }}
+          >
+            {snap.cart.length > 0 && (
+              <span className="absolute right-0 top-2 flex items-center justify-center w-[10%] h-[10%] p-2 rounded-full bg-red-500 text-white text-[0.8em]">
+                {snap.cart.length}
+              </span>
+            )}
             <svg
               version="1.1"
               id="cart"
@@ -173,15 +197,27 @@ const Header = () => {
             </svg>
           </button>
           <button
-            className="flex flex-row justify-center items-center"
+            className="relative pointer-events-auto cursor-pointer flex flex-row justify-center items-start"
             style={{ width: width[1] }}
+            onClick={() => {
+              setIsFavourite((prev) => !prev);
+              setIsCart(false);
+              setXdist("0px");
+              setIsClicked(false);
+              state.isTech = false;
+            }}
           >
+            {snap.favourite.length > 0 && (
+              <span className="absolute right-0 flex items-center justify-center w-[10%] h-[10%] p-2 rounded-full bg-red-500 text-white text-[0.8em]">
+                {snap.favourite.length}
+              </span>
+            )}
             <svg
               version="1.1"
               id="heartsvg"
               x="0px"
               y="0px"
-              width="80%"
+              width="60%"
               viewBox="0 0 200 200"
               enableBackground="new 0 0 200 200"
             >
@@ -201,6 +237,24 @@ const Header = () => {
           </button>
         </div>
       }
+      <AnimatePresence mode="wait">
+        {snap.isTech && <Techs key={"tech"} />}
+      </AnimatePresence>
+      <AnimatePresence mode="wait">
+        {isCart && <Cart setIsCart={setIsCart} />}
+      </AnimatePresence>
+      <AnimatePresence mode="wait">
+        {isFavourite && <Favourite />}
+      </AnimatePresence>
+      <AnimatePresence mode="wait">
+        {snap.isAdded[snap.index] && (
+          <AlertBox
+            text={snap.alertBox.text}
+            progress={snap.alertBox.progress}
+            error={snap.alertBox.error}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 };

@@ -1,0 +1,15 @@
+.item {
+  animation: animate 1.5s linear;
+  animation-delay: 0.6s;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes animate {
+  0% {
+    width: 2%;
+  }
+  100% {
+    width: 100%;
+  }
+}
