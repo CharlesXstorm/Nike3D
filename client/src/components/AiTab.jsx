@@ -85,8 +85,8 @@ const Tab = () => {
         // className={`flex ${
         //   window.innerWidth < 1025 && !aiTab ? "flex-col" : "flex-row"
         // } gap-1em justify-end items-end align-center pointer-events-auto w-[100%] border-2 border-solid border-red-500`}
-        className={`flex flex-row gap-[1em] justify-center items-center pointer-events-auto w-[100%]`}
-        style={{ transition: "all 1s linear" }}
+        className="flex flex-row gap-[1em] justify-center items-center pointer-events-auto w-[100%]"
+        // style={{ transition: "all 1s linear" }}
       >
         <AnimatePresence>
           {aiTab && (
@@ -119,7 +119,7 @@ const Tab = () => {
           // className={`flex ${
           //   window.innerWidth < 1025 && !aiTab ? "flex-col" : "flex-row"
           // } justify-center items-center`}
-          className={`flex flex-row justify-center items-center`}
+          className={`flex flex-row pointer-events-auto justify-center items-center`}
         >
           <AnimatePresence>
             {!aiTab && (
