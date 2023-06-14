@@ -14,7 +14,7 @@ const ButtonIncrement = () => {
       </button>
       <span>
         <input
-          className="bg-transparent border rounded-md w-[3em] text-center pl-2 "
+          className="bg-transparent border rounded-md w-[3em] text-center"
           type="number"
           value={qty}
           min="1"
