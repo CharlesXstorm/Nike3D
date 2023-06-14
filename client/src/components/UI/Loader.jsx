@@ -18,7 +18,7 @@ const Loader = ({ loaded, setDone }) => {
         backgroundImage: "url('/backdrop.jpg')",
         backgroundSize: "cover",
       }}
-      className="absolute flex flex-row justify-center items-center text-white top-0 left-0 w-screen h-screen bg-red-500"
+      className="absolute flex flex-row justify-center items-center text-white top-0 left-0 w-screen h-screen"
     >
       <div className="flex flex-col gap-4 justify-center items-center">
         <svg
