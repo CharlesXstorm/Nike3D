@@ -8,7 +8,6 @@ import { AnimatePresence } from "framer-motion";
 import Techs from "./Techs";
 import Cart from "./Cart";
 import Favourite from "./Favourite";
-// import { motion } from "framer-motion";
 
 const Header = () => {
   const [width, setWidth] = useState(["10%", "10%"]);
@@ -144,9 +143,7 @@ const Header = () => {
               id="cart"
               x="0px"
               y="0px"
-              // width={width[1]}
               width={"100%"}
-              //   height="200px"
               viewBox="0 0 200 200"
               enableBackground="new 0 0 200 200"
               fill="#fff"

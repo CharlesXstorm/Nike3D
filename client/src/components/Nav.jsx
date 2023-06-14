@@ -78,12 +78,9 @@ const Nav = () => {
             x="0px"
             y="0px"
             width="100%"
-            //   height="200px"
             viewBox="0 0 300 200"
             enableBackground="new 0 0 300 200"
             fill="#fff"
-
-            // style={{ backgroundColor: "lime", padding: "10px" }}
           >
             <path
               id="arrow"

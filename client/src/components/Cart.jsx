@@ -6,7 +6,6 @@ import { useSnapshot } from "valtio";
 import ButtonIncrement from "./UI/ButtonIncrement";
 import Card from "./UI/Card";
 import CustomButton from "./UI/CustomButton";
-// import { AnimatePresence, motion } from "framer-motion";
 import { textAnimation } from "../utils/animationUtil";
 
 const Cart = ({ setIsCart }) => {

@@ -1,4 +1,5 @@
 export const modelList = [
+  //a list of infos for gltf models. The url will be used to dynamically create these models
   {
     id: 0,
     name: "Nike Air Force",

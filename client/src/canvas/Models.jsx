@@ -18,7 +18,8 @@ const Models = ({ props }) => {
     <group {...props} dispose={null}>
       <Suspense fallback={null}>
         {
-          <Animate>
+          <Animate //a custom component to animate the models when sliding through products
+          >
             {models.map(
               (item) =>
                 snap.index === item.id && (

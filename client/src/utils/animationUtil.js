@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-vars */
 
 export const textAnimation = (direction, type = "words") => {
+  //a custom function with framer-motion attributes for translation animations
   switch (type) {
     case "spring":
       return {
@@ -47,19 +48,11 @@ export const textAnimation = (direction, type = "words") => {
 };
 
 export const opacityAnimation = () => {
+  //a custom function with framer-motion attributes for opacity animations
   return {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
     exit: { opacity: 0 },
     transition: { duration: 0.5, ease: "easeInOut" },
   };
-};
-
-export const speech = (setSpeech) => {
-  const list = ["Hi, I'm Eve.. ", "your personal AI design assistant.."];
-
-  for (let words in list) {
-    // console.log(list[words]);
-    setSpeech(list[words]);
-  }
 };

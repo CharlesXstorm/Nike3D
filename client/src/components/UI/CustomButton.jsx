@@ -13,14 +13,6 @@ const CustomButton = ({ text, width, onClick }) => {
       >
         {text}
       </button>
-      {/* <button
-        className="pointer-cursor"
-        onClick={() => {
-          props.onClick((prev) => !prev);
-        }}
-      >
-        <img width="50%" src={props.src} alt="ai" />
-      </button> */}
     </div>
   );
 };

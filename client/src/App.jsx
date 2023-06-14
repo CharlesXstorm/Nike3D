@@ -1,37 +1,31 @@
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
+import { useSnapshot } from "valtio";
+import { AnimatePresence } from "framer-motion";
+
+import { state } from "./store";
+import { modelList } from "./utils/models";
 import Canvas from "./canvas";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import Nav from "./components/Nav";
-import { useEffect, useState } from "react";
-// import { useInView } from "react-intersection-observer";
-import { useSnapshot } from "valtio";
-import { AnimatePresence } from "framer-motion";
-
-import { modelList } from "./utils/models";
-import { state } from "./store";
-// import Techs from "./components/Techs";
 import Tab from "./components/AiTab";
+import Loader from "./components/UI/Loader";
 
 function App() {
   const [dvWidth, setDvWidth] = useState(1024);
   const [models] = useState([...modelList]);
-  // const [ref, inView, entry] = useInView({
-  //   delay: 50000,
-  //   trackVisibility: true,
-  // });
+  const [loaded, setLoaded] = useState(false);
+  const [done, setDone] = useState(false);
 
   const snap = useSnapshot(state);
-
-  // console.log(snap.cart);
-
-  // console.log(models[0]);
 
   useEffect(() => {
     setDvWidth(window.innerWidth);
     window.addEventListener("load", () => {
       setTimeout(() => {
-        console.log("loaded");
-      }, [1000]);
+        setLoaded(true);
+      }, [1500]);
     });
   }, []);
 
@@ -39,7 +33,6 @@ function App() {
     <>
       <div
         style={{
-          // backgroundImage: "linear-gradient(45deg,black,white 20%)",
           backgroundImage: "url('/backdrop.jpg')",
         }}
         className="fixed bg-cover w-screen h-screen overflow-hidden"
@@ -58,6 +51,12 @@ function App() {
         <div className="fixed w-full h-full">
           <Canvas dvWidth={dvWidth} />
         </div>
+
+        {!done &&
+          createPortal(
+            <Loader loaded={loaded} setDone={setDone} />,
+            document.getElementById("loader")
+          )}
       </div>
     </>
   );

@@ -27,10 +27,6 @@ const Tab = () => {
 
   useEffect(() => {
     speech();
-
-    // interval();
-
-    return;
   }, []);
 
   const speech = () => {
@@ -42,7 +38,6 @@ const Tab = () => {
         return;
       }
       setEve(list[cnt]);
-      // console.log(list[cnt]);
       cnt++;
       speech();
     }, [2800]);
@@ -63,7 +58,6 @@ const Tab = () => {
         }
       );
 
-      // console.log(response.data);
       state.decalTextures[
         snap.index
       ] = `data:image/png;base64,${response.data.photo}`;
@@ -81,17 +75,10 @@ const Tab = () => {
 
   return (
     <div className="absolute pointer-events-none right-0 z-10 h-screen p-0 xl-p-10 flex justify-start items-center align-center">
-      <div
-        // className={`flex ${
-        //   window.innerWidth < 1025 && !aiTab ? "flex-col" : "flex-row"
-        // } gap-1em justify-end items-end align-center pointer-events-auto w-[100%] border-2 border-solid border-red-500`}
-        className="flex flex-row gap-[1em] justify-center items-center w-[100%]"
-        // style={{ transition: "all 1s linear" }}
-      >
+      <div className="flex flex-row gap-[1em] justify-center items-center w-[100%]">
         <AnimatePresence>
           {aiTab && (
             <motion.div
-              // className="w-[180px] h-[60px] glassmorphism "
               className="flex flex-col justify-end items-end pointer-events-auto"
               {...textAnimation("right", "card")}
             >
@@ -115,17 +102,11 @@ const Tab = () => {
           )}
         </AnimatePresence>
 
-        <div
-          // className={`flex ${
-          //   window.innerWidth < 1025 && !aiTab ? "flex-col" : "flex-row"
-          // } justify-center items-center`}
-          className={`flex flex-row justify-center items-center `}
-        >
+        <div className={`flex flex-row justify-center items-center `}>
           <AnimatePresence>
             {!aiTab && (
               <motion.div
                 {...opacityAnimation}
-                // {...textAnimation("right")}
                 className={`self-start w-[120px] p-4 ${
                   eve != "" ? "backdrop-blur-md" : ""
                 } rounded-s-xl pointer-events-none`}
@@ -151,11 +132,6 @@ const Tab = () => {
                   }, [1500]);
                 }
               }}
-              // onMouseOut={() =>
-              //   setTimeout(() => {
-              //     speech();
-              //   }, [1500])
-              // }
             >
               <img width="80%" src="/ai.png" alt="ai" />
             </button>
