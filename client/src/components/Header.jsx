@@ -7,6 +7,7 @@ import AlertBox from "./UI/AlertBox";
 import { AnimatePresence } from "framer-motion";
 import Techs from "./Techs";
 import Cart from "./Cart";
+import Favourite from "./Favourite";
 // import { motion } from "framer-motion";
 
 const Header = () => {
@@ -14,6 +15,7 @@ const Header = () => {
   const [xDist, setXdist] = useState("0px");
   const [isClicked, setIsClicked] = useState(false);
   const [isCart, setIsCart] = useState(false);
+  const [isFavourite, setIsFavourite] = useState(false);
 
   const snap = useSnapshot(state);
 
@@ -125,6 +127,7 @@ const Header = () => {
             style={{ width: `${width[1]}` }}
             onClick={() => {
               setIsCart((prev) => !prev);
+              setIsFavourite(false);
               state.isTech = false;
             }}
           >
@@ -193,6 +196,11 @@ const Header = () => {
           <button
             className="relative pointer-events-auto cursor-pointer flex flex-row justify-center items-start"
             style={{ width: width[1] }}
+            onClick={() => {
+              setIsFavourite((prev) => !prev);
+              setIsCart(false);
+              state.isTech = false;
+            }}
           >
             {snap.favourite.length > 0 && (
               <span className="absolute right-0 flex items-center justify-center w-[10%] h-[10%] p-2 rounded-full bg-red-500 text-white text-[0.8em]">
@@ -227,7 +235,12 @@ const Header = () => {
       <AnimatePresence mode="wait">
         {snap.isTech && <Techs key={"tech"} />}
       </AnimatePresence>
-      <AnimatePresence mode="wait">{isCart && <Cart />}</AnimatePresence>
+      <AnimatePresence mode="wait">
+        {isCart && <Cart setIsCart={setIsCart} />}
+      </AnimatePresence>
+      <AnimatePresence mode="wait">
+        {isFavourite && <Favourite />}
+      </AnimatePresence>
       <AnimatePresence mode="wait">
         {snap.isAdded[snap.index] && (
           <AlertBox
