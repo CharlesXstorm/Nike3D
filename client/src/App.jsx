@@ -26,6 +26,9 @@ function App() {
       setTimeout(() => {
         setLoaded(true);
       }, [1500]);
+      setTimeout(() => {
+        setDone(true);
+      }, [3000]);
     });
   }, []);
 
@@ -54,7 +57,7 @@ function App() {
 
         {!done &&
           createPortal(
-            <Loader loaded={loaded} setLoaded={setLoaded} setDone={setDone} />,
+            <Loader loaded={loaded} />,
             document.getElementById("loader")
           )}
       </div>

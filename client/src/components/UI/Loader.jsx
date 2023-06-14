@@ -1,17 +1,17 @@
 /* eslint-disable react/prop-types */
 // import React from "react";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import style from "./Loader.module.css";
 
-const Loader = ({ loaded, setDone, setLoaded }) => {
-  useEffect(() => {
-    if (loaded) {
-      setTimeout(() => {
-        setDone(true);
-        setLoaded(false);
-      }, [1500]);
-    }
-  }, [loaded, setDone, setLoaded]);
+const Loader = ({ loaded }) => {
+  // useEffect(() => {
+  //   if (loaded) {
+  //     setTimeout(() => {
+  //       setDone(true);
+  //       setLoaded(false);
+  //     }, [1500]);
+  //   }
+  // }, []);
   return (
     <div
       style={{
