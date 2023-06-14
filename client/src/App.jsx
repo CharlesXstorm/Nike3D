@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { createPortal } from "react-dom";
+// import { createPortal } from "react-dom";
 import { useSnapshot } from "valtio";
 import { AnimatePresence } from "framer-motion";
 
@@ -10,26 +10,26 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import Nav from "./components/Nav";
 import Tab from "./components/AiTab";
-import Loader from "./components/UI/Loader";
+// import Loader from "./components/UI/Loader";
 
 function App() {
   const [dvWidth, setDvWidth] = useState(1024);
   const [models] = useState([...modelList]);
-  const [loaded, setLoaded] = useState(false);
+  // const [loaded, setLoaded] = useState(false);
   // const [done, setDone] = useState(false);
 
   const snap = useSnapshot(state);
 
   useEffect(() => {
     setDvWidth(window.innerWidth);
-    window.addEventListener("load", () => {
-      setTimeout(() => {
-        setLoaded(true);
-      }, [1500]);
-      // setTimeout(() => {
-      //   setDone(true);
-      // }, [3000]);
-    });
+    // window.addEventListener("load", () => {
+    //   setTimeout(() => {
+    //     setLoaded(true);
+    //   }, [1500]);
+    // setTimeout(() => {
+    //   setDone(true);
+    // }, [3000]);
+    // });
   }, []);
 
   return (
@@ -55,11 +55,11 @@ function App() {
           <Canvas dvWidth={dvWidth} />
         </div>
 
-        {!loaded &&
+        {/* {!loaded &&
           createPortal(
             <Loader loaded={loaded} />,
             document.getElementById("loader")
-          )}
+          )} */}
       </div>
     </>
   );
