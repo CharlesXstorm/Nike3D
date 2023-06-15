@@ -2,11 +2,11 @@ Nike 3D website created using Reactjs, threejs, expressjs, OpenAI, framer-motion
 This project was created to learn more about React-Three-Fiber (a react renderer for threejs) and the OpenAI-API.
 
 ##DEMO
-You can checkout the demo here:
+#You can checkout the demo here:
 https://nikeit.netlify.app
 
 ##FEATURES
-_Browse through products.
--Create different variants of product by creating generative textures using the prompt input provided.
--Add products to cart.
--Favourite products.
+#Browse through products.
+#Create different variants of product by creating generative textures using the prompt input provided.
+#Add products to cart.
+#Favourite products.
