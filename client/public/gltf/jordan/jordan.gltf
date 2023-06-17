@@ -144,9 +144,9 @@
             "uri" : "shoe_normal.jpg"
         },
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "shoe_baseColor",
-            "uri" : "shoe_baseColor.png"
+            "uri" : "shoe_baseColor-1.jpg"
         },
         {
             "mimeType" : "image/png",
