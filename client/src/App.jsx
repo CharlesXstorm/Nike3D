@@ -23,7 +23,7 @@ function App() {
   useEffect(() => {
     setDvWidth(window.innerWidth);
     window.addEventListener("load", loadFn);
-    // console.log(loaded);
+
     return () => window.removeEventListener("load", loadFn);
   }, []);
 
@@ -31,12 +31,7 @@ function App() {
     setTimeout(() => {
       setLoaded(true);
     }, [1500]);
-    // setTimeout(() => {
-    //   setDone(true);
-    // }, [3000]);
   };
-
-  // console.log(loaded, done);
 
   return (
     <>

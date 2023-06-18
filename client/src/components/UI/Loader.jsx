@@ -12,6 +12,7 @@ const Loader = ({ loaded, setDone, setLoaded }) => {
       }, [1500]);
     }
   }, [loaded]);
+
   return (
     <div
       style={{
