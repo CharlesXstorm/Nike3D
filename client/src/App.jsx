@@ -22,8 +22,12 @@ function App() {
 
   useEffect(() => {
     setDvWidth(window.innerWidth);
-    window.addEventListener("load", loadFn);
-
+    if (document.readyState === "complete"){
+      loadFn()
+      }else{
+      window.addEventListener("load", loadFn);
+        }
+    
     return () => window.removeEventListener("load", loadFn);
   }, []);
 
