@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unknown-property */
-import { Suspense } from "react";
+// import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Environment, ContactShadows, Float } from "@react-three/drei";
 import Selector from "./Selector";
