@@ -23,7 +23,7 @@ const ModelItem = ({ id, url, price, data }) => {
   decalTexture.wrapT = THREE.RepeatWrapping;
   decalTexture.repeat.set(3, 3);
 
-  useGLTF.preload(url); //preload gltf for caching
+  // useGLTF.preload(url); //preload gltf for caching
 
   return (
     <group rotation={[-Math.PI / 2, Math.PI, Math.PI / 2]}>
@@ -68,5 +68,9 @@ const ModelItem = ({ id, url, price, data }) => {
     </group>
   );
 };
+
+useGLTF.preload("/gltf/nikeair/nikeair.gltf");
+useGLTF.preload("/gltf/runner/NikeFiber.gltf");
+useGLTF.preload("/gltf/jordan/jordan.gltf");
 
 export default ModelItem;

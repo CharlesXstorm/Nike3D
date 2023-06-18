@@ -31,13 +31,13 @@ const CanvasModel = () => {
         far={0.9}
       />
 
-      <Suspense fallback={null}>
-        <Selector>
-          <Float speed={4} floatingRange={[0.04, 0.1]}>
-            <Models />
-          </Float>
-        </Selector>
-      </Suspense>
+      {/* <Suspense fallback={null}> */}
+      <Selector>
+        <Float speed={4} floatingRange={[0.04, 0.1]}>
+          <Models />
+        </Float>
+      </Selector>
+      {/* </Suspense> */}
     </Canvas>
   );
 };

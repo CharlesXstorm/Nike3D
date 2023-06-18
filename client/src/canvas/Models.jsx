@@ -3,6 +3,7 @@
 // import React from 'react'
 import { useSnapshot } from "valtio";
 import { Suspense, useState } from "react";
+import { Preload } from "@react-three/drei";
 
 import { state } from "../store";
 import Animate from "./utils/Animate";
@@ -35,6 +36,7 @@ const Models = ({ props }) => {
           </Animate>
         }
       </Suspense>
+      <Preload all />
     </group>
   );
 };
