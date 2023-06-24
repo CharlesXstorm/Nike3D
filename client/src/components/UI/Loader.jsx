@@ -17,7 +17,8 @@ const Loader = ({ loaded, setDone, setLoaded }) => {
     <div
       style={{
         zIndex: 10,
-        backgroundImage: "url('/backdrop.jpg')",
+        //backgroundImage: "url('/backdrop.jpg')",
+	backgroungColor: "#232323", 
         backgroundSize: "cover",
         position: "fixed",
         top: "0px",
