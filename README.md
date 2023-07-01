@@ -1,4 +1,4 @@
-Nike 3D website created using Reactjs, threejs, expressjs, OpenAI, framer-motion, and tailwind CSS.
+Nike 3D website created using React, threejs, expressjs, OpenAI, framer-motion, and tailwind CSS.
 This project was created to learn more about React-Three-Fiber (a react renderer for threejs) and the OpenAI-API.
 
 # DEMO
